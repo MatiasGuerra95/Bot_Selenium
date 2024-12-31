@@ -1,0 +1,24 @@
+name: Run Selenium Bot
+on: [workflow_dispatch]
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run the Selenium script
+        env:
+          PORTAL_USER: ${{ secrets.PORTAL_USER }}
+          PORTAL_PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
+        run: |
+          python robot.py
