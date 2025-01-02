@@ -2,8 +2,6 @@ name: Ejecutar Bot Selenium
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [execute_workflow]
 
 jobs:
   run_bot:
@@ -33,14 +31,25 @@ jobs:
           source venv/bin/activate
           pip install -r requirements.txt
 
-      # 5. Configurar credenciales de Google Drive
+      # 5. Instalar Google Chrome y ChromeDriver
+      - name: Instalar Google Chrome y ChromeDriver
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+          wget https://chromedriver.storage.googleapis.com/$(google-chrome --version | cut -d " " -f 3 | cut -d "." -f 1-3)/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
+          rm chromedriver_linux64.zip
+
+      # 6. Configurar credenciales de Google Drive
       - name: Configurar credenciales de Google Drive
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
           echo "${{ secrets.GOOGLE_CREDENTIALS }}" > service_account.json
 
-      # 6. Ejecutar el script de Selenium
+      # 7. Ejecutar el script de Selenium
       - name: Ejecutar script Selenium
         env:
           PORTAL_USER: ${{ secrets.PORTAL_USER }}
@@ -49,7 +58,7 @@ jobs:
           source venv/bin/activate
           python robot.py
 
-      # 7. Guardar logs como artefacto
+      # 8. Guardar logs como artefacto
       - name: Guardar archivo de log
         if: always()
         uses: actions/upload-artifact@v4
@@ -57,6 +66,6 @@ jobs:
           name: logs
           path: robot.log
 
-      # 8. Mensaje de éxito
+      # 9. Mensaje de éxito
       - name: Output Success Message
         run: echo "Script ejecutado correctamente en GitHub Actions."
