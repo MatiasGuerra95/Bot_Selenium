@@ -2,22 +2,15 @@ name: Ejecutar Bot Selenium
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [execute_workflow]
 
 jobs:
   run_bot:
     runs-on: ubuntu-latest
-    container:
-      image: selenium/standalone-chrome:latest  # Contenedor preconfigurado con Selenium y Chrome
-      options: --user=root 
 
     steps:
       # 1. Clonar el repositorio
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
 
       # 2. Configurar Python
       - name: Set up Python
@@ -25,28 +18,34 @@ jobs:
         with:
           python-version: "3.12"
 
-      # 3. Instalar dependencias de Python
-      - name: Instalar dependencias
+      # 3. Crear un entorno virtual
+      - name: Crear entorno virtual
+        run: python -m venv .venv
+
+      # 4. Activar el entorno virtual e instalar dependencias
+      - name: Instalar dependencias en entorno virtual
         run: |
+          source .venv/bin/activate
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 4. Configurar las credenciales de Google Drive
-      - name: Configurar credenciales de Google Drive
+      # 5. Configurar credenciales de Google Drive
+      - name: Configure Google Credentials
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
           echo "${{ secrets.GOOGLE_CREDENTIALS }}" > service_account.json
 
-      # 5. Ejecutar el script de Selenium
+      # 6. Ejecutar el script de Selenium
       - name: Ejecutar script Selenium
         env:
           PORTAL_USER: ${{ secrets.PORTAL_USER }}
           PORTAL_PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
         run: |
+          source .venv/bin/activate
           python robot.py
 
-      # 6. Guardar logs como artefacto
+      # 7. Guardar logs como artefacto
       - name: Guardar archivo de log
         if: always()
         uses: actions/upload-artifact@v4
@@ -54,6 +53,6 @@ jobs:
           name: logs
           path: robot.log
 
-      # 7. Mensaje de éxito
-      - name: Mensaje de éxito
+      # 8. Mensaje de éxito
+      - name: Output Success Message
         run: echo "Script ejecutado correctamente en GitHub Actions."
