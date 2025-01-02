@@ -18,19 +18,21 @@ jobs:
         with:
           python-version: "3.12"
 
-      # 3. Crear un entorno virtual
-      - name: Crear entorno virtual
-        run: python -m venv .venv
-
-      # 4. Activar el entorno virtual e instalar dependencias
-      - name: Instalar dependencias en entorno virtual
+      # 3. Crear y activar un entorno virtual
+      - name: Crear y configurar entorno virtual
         run: |
-          source .venv/bin/activate
+          python -m venv venv
+          source venv/bin/activate
           python -m pip install --upgrade pip
+
+      # 4. Instalar dependencias
+      - name: Instalar dependencias
+        run: |
+          source venv/bin/activate
           pip install -r requirements.txt
 
       # 5. Configurar credenciales de Google Drive
-      - name: Configure Google Credentials
+      - name: Configurar credenciales de Google Drive
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
@@ -42,7 +44,7 @@ jobs:
           PORTAL_USER: ${{ secrets.PORTAL_USER }}
           PORTAL_PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
         run: |
-          source .venv/bin/activate
+          source venv/bin/activate
           python robot.py
 
       # 7. Guardar logs como artefacto
