@@ -10,11 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: selenium/standalone-chrome:latest  # Contenedor preconfigurado con Selenium y Chrome
+      options: --user=root 
 
     steps:
       # 1. Clonar el repositorio
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       # 2. Configurar Python
       - name: Set up Python
