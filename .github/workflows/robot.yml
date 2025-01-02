@@ -2,10 +2,14 @@ name: Ejecutar Bot Selenium
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [execute_workflow]
 
 jobs:
   run_bot:
     runs-on: ubuntu-latest
+    container:
+      image: selenium/standalone-chrome:latest  # Contenedor preconfigurado con Selenium y Chrome
 
     steps:
       # 1. Clonar el repositorio
@@ -18,35 +22,20 @@ jobs:
         with:
           python-version: "3.12"
 
-      # 3. Instalar dependencias
+      # 3. Instalar dependencias de Python
       - name: Instalar dependencias
         run: |
-          python -m pip install --upgrade pip 
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # 4. Instalar Google Chrome
-      - name: Install Google Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-      # 5. Descargar e instalar ChromeDriver
-      - name: Descargar ChromeDriver
-        run: |
-          wget https://storage.googleapis.com/chrome-for-testing-public/130.0.6723.116/linux64/chromedriver-linux64.zip -O chromedriver-linux64.zip
-          unzip chromedriver-linux64.zip -d /usr/local/bin/
-          mv /usr/local/bin/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
-          chmod +x /usr/local/bin/chromedriver
-          rm -r chromedriver-linux64.zip /usr/local/bin/chromedriver-linux64/
-
-      # 6. Configurar las credenciales de Google Drive
-      - name: Configure Google Credentials
+      # 4. Configurar las credenciales de Google Drive
+      - name: Configurar credenciales de Google Drive
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
           echo "${{ secrets.GOOGLE_CREDENTIALS }}" > service_account.json
 
-      # 7. Ejecutar el script de Selenium
+      # 5. Ejecutar el script de Selenium
       - name: Ejecutar script Selenium
         env:
           PORTAL_USER: ${{ secrets.PORTAL_USER }}
@@ -54,7 +43,7 @@ jobs:
         run: |
           python robot.py
 
-      # 8. Guardar logs como artefacto
+      # 6. Guardar logs como artefacto
       - name: Guardar archivo de log
         if: always()
         uses: actions/upload-artifact@v4
@@ -62,6 +51,6 @@ jobs:
           name: logs
           path: robot.log
 
-      # 9. Mensaje de éxito
-      - name: Output Success Message
+      # 7. Mensaje de éxito
+      - name: Mensaje de éxito
         run: echo "Script ejecutado correctamente en GitHub Actions."

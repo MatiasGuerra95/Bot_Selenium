@@ -16,20 +16,25 @@ PASSWORD = os.getenv("PORTAL_PASSWORD")
 def setup_driver():
     options = Options()
     options.add_argument("--start-maximized")
-    
-    # Quita comentario para correr en modo headless (sin interfaz)
-    # options.add_argument("--headless")
+    options.add_argument("--no-sandbox")  # Necesario para entornos sin interfaz gráfica
+    options.add_argument("--disable-dev-shm-usage")  # Mejora el manejo de memoria compartida
+    options.add_argument("--disable-gpu")  # Deshabilitar GPU
+    options.add_argument("--headless")  # Ejecutar en modo sin interfaz gráfica
+    options.add_argument("--remote-debugging-port=9222")  # Necesario para debugging remoto
+    options.add_argument("--window-size=1920,1080")  # Tamaño de ventana predeterminado
+    options.add_argument("--disable-extensions")  # Deshabilitar extensiones del navegador
 
-    # Opcional: Usar un User-Agent que parezca más “humano”
+    # Opcional: User-Agent para evitar detección como bot
     options.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
     )
 
-    # Ajusta la ruta a ChromeDriver en tu sistema
+    # Ruta a ChromeDriver
     service = Service("/usr/local/bin/chromedriver")
     driver = webdriver.Chrome(service=service, options=options)
     return driver
+
 
 def login_sistema_requerimientos():
     driver = setup_driver()
