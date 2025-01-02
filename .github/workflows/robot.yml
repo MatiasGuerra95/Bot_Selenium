@@ -2,6 +2,8 @@ name: Ejecutar Bot Selenium
 
 on:
   workflow_dispatch:
+  repository_dispatch:
+    types: [execute_workflow]
 
 jobs:
   run_bot:
