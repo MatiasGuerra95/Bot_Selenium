@@ -3,8 +3,7 @@ from googleapiclient.discovery import build
 
 def test_drive():
     # Carga las credenciales
-    creds = Credentials.from_service_account_file(
-        "service_account.json",
+    creds = Credentials.from_service_account_file("service_account.json",
         scopes=["https://www.googleapis.com/auth/drive"]
     )
     # Construye el servicio de Drive
