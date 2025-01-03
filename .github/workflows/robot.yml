@@ -38,11 +38,11 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-          wget https://chromedriver.storage.googleapis.com/$(google-chrome --version | cut -d " " -f 3 | cut -d "." -f 1-3)/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip
-          sudo mv chromedriver /usr/local/bin/
+          wget https://storage.googleapis.com/chrome-for-testing-public/130.0.6723.116/linux64/chromedriver-linux64.zip -O chromedriver-linux64.zip
+          unzip chromedriver-linux64.zip -d /usr/local/bin/
+          sudo mv /usr/local/bin/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
-          rm chromedriver_linux64.zip
+          rm -r chromedriver-linux64.zip /usr/local/bin/chromedriver-linux64/
 
       # 6. Configurar credenciales de Google Drive
       - name: Configurar credenciales de Google Drive
