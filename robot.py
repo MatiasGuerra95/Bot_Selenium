@@ -34,102 +34,67 @@ def setup_driver():
     return driver
 
 def login_sistema_requerimientos(driver):
-    try:
-        driver.get("https://sistemaderequerimientos.cl/")
-        print("Navegando al portal de sistema de requerimientos.")
-        
-        WebDriverWait(driver, 15).until(
-            EC.element_to_be_clickable((By.ID, "tabs-icons-text-2-tab"))
-        ).click()
-        print("Clic en 'Soy Proveedor'.")
-        
-        WebDriverWait(driver, 15).until(
-            EC.visibility_of_element_located((By.ID, "inputUsername_recover"))
-        ).send_keys(USER)
-        
-        driver.find_element(By.ID, "inputPassword_recover").send_keys(PASSWORD)
-        
-        WebDriverWait(driver, 15).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, "div#tabs-icons-text-2 form button[type='submit']"))
-        ).click()
-        print("Inicio de sesión realizado.")
-        time.sleep(5)
-    except Exception as e:
-        print(f"Error durante el inicio de sesión: {e}")
-        driver.save_screenshot("error_login.png")
-        raise
+    driver.get("https://sistemaderequerimientos.cl/")
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.ID, "tabs-icons-text-2-tab"))
+    ).click()
+    WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.ID, "inputUsername_recover"))
+    ).send_keys(USER)
+    driver.find_element(By.ID, "inputPassword_recover").send_keys(PASSWORD)
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "div#tabs-icons-text-2 form button[type='submit']"))
+    ).click()
+    time.sleep(5)
 
 def navegar_menu_soporte_operativo(driver):
-    try:
-        print("Intentando hacer clic en 'Soporte operativo'...")
-        soporte_operativo = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Soporte operativo')]"))
-        )
-        soporte_operativo.click()
-        print("Clic en 'Soporte operativo' realizado.")
-        time.sleep(2)  # Espera para que se despliegue el submenú
-
-        print("Intentando hacer clic en 'Personal Externo'...")
-        personal_externo = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@href='#module_hrm' and contains(@class, 'nav-link')]"))
-        )
-        personal_externo.click()
-        print("Clic en 'Personal Externo' realizado.")
-        time.sleep(2)  # Espera para que se expanda el submenú correspondiente
-
-        print("Intentando hacer clic en 'Estado de solicitudes Personal Externo'...")
-        estado_solicitudes = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal' and contains(@class, 'nav-link')]"))
-        )
-        estado_solicitudes.click()
-        print("Clic en 'Estado de solicitudes Personal Externo' realizado.")
-        time.sleep(2)  # Espera para que cargue la página
-
-    except Exception as e:
-        print(f"Error navegando el menú: {e}")
-        driver.save_screenshot("error_navegando_menu.png")
-        print("HTML actual del DOM:")
-        print(driver.page_source[:1000])  # Captura el HTML para inspección
-        raise
-
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Soporte operativo')]")
+    )).click()
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Personal Externo')]/..")
+    )).click()
+    WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Estado de solicitudes Personal Externo')]")
+    )).click()
+    time.sleep(2)
 
 def ingresar_y_extraer_numero(driver):
     try:
-        # Esperar a que el enlace del primer número de solicitud sea visible y hacer clic
-        numero_enlace = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, "a.btn.btn-sm.text-orange"))
+        # Hacer clic en el botón naranja (icono de ojo)
+        boton_ver = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "a.btn.btn-sm.btn-primary"))
         )
-        numero_enlace.click()
+        boton_ver.click()
+        print("Clic en el botón 'Ver' realizado.")
+        time.sleep(3)
 
-        # Cambiar el enfoque a la nueva página y esperar el breadcrumb con el número de solicitud
-        numero_requerimiento = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "span.breadcrumb-item.active.current"))
-        ).text.strip()
-        
-        print(f"Número de solicitud extraído: {numero_requerimiento}")
-        return numero_requerimiento
+        # Extraer el número de solicitud desde la clase breadcrumb
+        numero_solicitud = WebDriverWait(driver, 20).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, "span.breadcrumb-item.active.current"))
+        ).text
+
+        # Limpiar el texto para obtener solo el número
+        numero_solicitud = numero_solicitud.replace("Solicitud N°", "").strip()
+        print(f"Número de solicitud extraído: {numero_solicitud}")
+        return numero_solicitud
+
     except Exception as e:
         print(f"Error al ingresar o extraer el número de solicitud: {e}")
-        return None
-
+        raise
 
 def actualizar_google_sheets(valor):
-    try:
-        creds = Credentials.from_service_account_file("service_account.json", scopes=SCOPES)
-        service = build("sheets", "v4", credentials=creds)
-        values = [[valor]]
-        body = {"values": values}
-
-        result = service.spreadsheets().values().append(
-            spreadsheetId=SPREADSHEET_ID,
-            range=RANGE_NAME,
-            valueInputOption="USER_ENTERED",
-            body=body,
-        ).execute()
-        print(f"{result.get('updates').get('updatedCells')} celda(s) actualizada(s) en Google Sheets.")
-    except Exception as e:
-        print(f"Error actualizando Google Sheets: {e}")
-        raise
+    creds = Credentials.from_service_account_file("service_account.json", scopes=SCOPES)
+    service = build("sheets", "v4", credentials=creds)
+    values = [[valor]]
+    body = {"values": values}
+    result = service.spreadsheets().values().append(
+        spreadsheetId=SPREADSHEET_ID,
+        range=RANGE_NAME,
+        valueInputOption="USER_ENTERED",
+        body=body,
+    ).execute()
+    print(f"{result.get('updates').get('updatedCells')} celda(s) actualizada(s) en Google Sheets.")
 
 def main():
     driver = setup_driver()
