@@ -12,7 +12,7 @@ import os
 
 # Configurar logging
 logging.basicConfig(
-    filename='script.log',
+    filename='robot.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
