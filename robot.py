@@ -121,30 +121,61 @@ def ingresar_y_extraer_datos(driver):
         logging.info("Clic en el número de la primera solicitud realizado.")
         time.sleep(3)
 
+        # Hacer clic en "Datos de la solicitud"
+        try:
+            datos_solicitud_button = WebDriverWait(driver, 20).until(
+                EC.element_to_be_clickable((By.XPATH, "//span[contains(text(), 'Datos de la solicitud')]")
+            ))
+            datos_solicitud_button.click()
+            logging.info("Clic en 'Datos de la solicitud' realizado.")
+            time.sleep(2)
+        except Exception as e:
+            logging.warning(f"Error al hacer clic en 'Datos de la solicitud': {e}")
+
         # Extraer Cargo solicitado
-        cargo = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Cargo solicitado:')]/following-sibling::span"))
-        ).text.strip()
+        try:
+            cargo = WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Cargo solicitado:')]/following-sibling::span"))
+            ).text.strip()
+        except Exception as e:
+            logging.warning(f"Error al extraer el cargo: {e}")
+            cargo = "No disponible"
 
         # Extraer Sucursal o Dirección
-        sucursal = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Dirección confirmada:')]/following-sibling::span"))
-        ).text.strip()
+        try:
+            sucursal = WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Dirección confirmada:')]/following-sibling::span"))
+            ).text.strip()
+        except Exception as e:
+            logging.warning(f"Error al extraer la sucursal: {e}")
+            sucursal = "No disponible"
 
         # Extraer Fecha de Inicio
-        fecha_inicio = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Fecha de inicio:')]/following-sibling::span"))
-        ).text.strip()
+        try:
+            fecha_inicio = WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Fecha de inicio:')]/following-sibling::span"))
+            ).text.strip()
+        except Exception as e:
+            logging.warning(f"Error al extraer la fecha de inicio: {e}")
+            fecha_inicio = "No disponible"
 
         # Extraer Fecha de Término
-        fecha_termino = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Fecha de término:')]/following-sibling::span"))
-        ).text.strip()
+        try:
+            fecha_termino = WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Fecha de término:')]/following-sibling::span"))
+            ).text.strip()
+        except Exception as e:
+            logging.warning(f"Error al extraer la fecha de término: {e}")
+            fecha_termino = "No disponible"
 
         # Extraer Causal
-        causal = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Causal solicitud:')]/following-sibling::span"))
-        ).text.strip()
+        try:
+            causal = WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Causal solicitud:')]/following-sibling::span"))
+            ).text.strip()
+        except Exception as e:
+            logging.warning(f"Error al extraer la causal: {e}")
+            causal = "No disponible"
 
         # Generar enlace para la solicitud
         link = f"https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/{numero_solicitud}"
