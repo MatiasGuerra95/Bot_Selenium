@@ -10,22 +10,23 @@ from googleapiclient.discovery import build
 import time
 import os
 
-# Configurar logging
-logging.basicConfig(
-    filename='robot.log',
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    filemode='w',  # Sobrescribe el archivo cada vez que se ejecuta el script
-)
+# Configurar logger principal
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
-# Agregar un manejador de flujo para que también muestre los logs en la consola
+# Configurar el manejador para el archivo
+file_handler = logging.FileHandler('robot.log', mode='w')
+file_handler.setLevel(logging.INFO)
+file_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+
+# Configurar el manejador para la consola
 console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.INFO)
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-console_handler.setFormatter(formatter)
-
-# Añadir el manejador de consola al logger
-logging.getLogger().addHandler(console_handler)
+console_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+console_handler.setFormatter(console_formatter)
+logger.addHandler(console_handler)
 
 # Cargar variables de entorno
 from dotenv import load_dotenv
