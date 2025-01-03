@@ -63,28 +63,24 @@ def login_sistema_requerimientos(driver):
 
 def navegar_menu_soporte_operativo(driver):
     try:
-        print("Intentando hacer clic en 'Soporte operativo'...")
-        soporte_operativo = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//a[contains(text(),'Soporte operativo')]"))
-        )
-        driver.execute_script("arguments[0].scrollIntoView(true);", soporte_operativo)
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Soporte operativo')]"))).click()
-        print("Clic en 'Soporte operativo' realizado.")
-
         print("Intentando hacer clic en 'Personal Externo'...")
         personal_externo = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Personal Externo')]/.."))
+            EC.presence_of_element_located((By.XPATH, "//a[@href='#module_hrm' and @role='button']"))
         )
         driver.execute_script("arguments[0].scrollIntoView(true);", personal_externo)
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Personal Externo')]/.."))).click()
+        WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//a[@href='#module_hrm' and @role='button']"))
+        ).click()
         print("Clic en 'Personal Externo' realizado.")
 
         print("Intentando hacer clic en 'Estado de solicitudes Personal Externo'...")
         estado_solicitudes = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//a[contains(text(),'Estado de solicitudes Personal Externo')]"))
+            EC.presence_of_element_located((By.XPATH, "//a[@href='/workflow/externalizacion-personal']"))
         )
         driver.execute_script("arguments[0].scrollIntoView(true);", estado_solicitudes)
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Estado de solicitudes Personal Externo')]"))).click()
+        WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal']"))
+        ).click()
         print("Clic en 'Estado de solicitudes Personal Externo' realizado.")
         time.sleep(2)
 
@@ -92,6 +88,7 @@ def navegar_menu_soporte_operativo(driver):
         print(f"Error navegando el menú: {e}")
         driver.save_screenshot("error_navegacion_menu.png")
         raise
+
 
 
 def ingresar_y_extraer_numero(driver):
