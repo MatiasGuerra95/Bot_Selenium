@@ -95,15 +95,24 @@ def navegar_menu_soporte_operativo(driver):
 
 def extraer_numero_requerimiento(driver):
     try:
-        numero_requerimiento = WebDriverWait(driver, 15).until(
-            EC.visibility_of_element_located((By.XPATH, "//table[@id='dt_review']//tbody/tr[1]/td[1]/a"))
+        print("Intentando extraer el número de requerimiento...")
+        # Esperar a que la tabla esté presente
+        WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.ID, "dt_review"))
+        )
+        # Extraer el número de requerimiento de la primera fila
+        numero_requerimiento = WebDriverWait(driver, 20).until(
+            EC.visibility_of_element_located((By.XPATH, "//table[@id='dt_review']//tbody/tr[1]/td/a[contains(@class, 'text-orange')]"))
         ).text
         print(f"Número de requerimiento encontrado: {numero_requerimiento}")
         return numero_requerimiento
     except Exception as e:
         print(f"Error al extraer el número de requerimiento: {e}")
-        driver.save_screenshot("error_numero_requerimiento.png")
+        driver.save_screenshot("error_extraccion_numero.png")  # Guardar captura de pantalla para depuración
+        print("HTML actual del DOM:")
+        print(driver.page_source[:1000])  # Imprimir parte del HTML para inspección
         raise
+
 
 def actualizar_google_sheets(valor):
     try:
