@@ -105,18 +105,20 @@ def ingresar_y_extraer_numero(driver):
         logging.info("Clic en el botón 'Ver' realizado.")
         time.sleep(3)
 
-        logging.info("Intentando extraer el número de solicitud desde la página de detalles...")
-        numero_solicitud = WebDriverWait(driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//span[@class='breadcrumb-item active current']"))
-        ).text
+        logging.info("Intentando extraer el número de solicitud desde el encabezado de la página...")
+        numero_solicitud_element = WebDriverWait(driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//h1[contains(text(),'Solicitud de Personal')]"))
+        )
+        numero_solicitud_texto = numero_solicitud_element.text
+        numero_solicitud = numero_solicitud_texto.split("N°")[1].strip()
 
-        numero_solicitud = numero_solicitud.replace("Solicitud N°", "").strip()
         logging.info(f"Número de solicitud extraído: {numero_solicitud}")
         return numero_solicitud
 
     except Exception as e:
         logging.error(f"Error al ingresar o extraer el número de solicitud: {e}")
         raise
+
 
 def actualizar_google_sheets(valor):
     try:
