@@ -103,9 +103,16 @@ def ingresar_y_extraer_numero(driver):
         )
         boton_ver.click()
         logging.info("Clic en el botón 'Ver' realizado.")
-        time.sleep(5)  # Agregar una pausa para esperar la carga de la página.
+        time.sleep(5)  # Espera adicional para la carga completa de la página.
 
         logging.info("Intentando extraer el número de solicitud desde el encabezado de la página...")
+
+        # Si el elemento está en un iframe, cambiaremos el contexto
+        iframes = driver.find_elements(By.TAG_NAME, "iframe")
+        if iframes:
+            logging.info("Cambiando al primer iframe encontrado...")
+            driver.switch_to.frame(iframes[0])
+
         numero_solicitud_element = WebDriverWait(driver, 40).until(
             EC.presence_of_element_located((By.XPATH, "//h1[contains(text(),'Solicitud de Personal')]"))
         )
@@ -120,16 +127,18 @@ def ingresar_y_extraer_numero(driver):
             raise ValueError("Formato inesperado para el número de solicitud.")
 
         logging.info(f"Número de solicitud extraído: {numero_solicitud}")
+
+        # Regresar al contexto principal si se cambió al iframe
+        driver.switch_to.default_content()
+
         return numero_solicitud
 
     except Exception as e:
-        # Capturar una captura de pantalla en caso de error
         screenshot_path = "error_screenshot.png"
         driver.save_screenshot(screenshot_path)
         logging.error(f"Error al ingresar o extraer el número de solicitud: {e}")
         logging.error(f"Captura de pantalla guardada en: {screenshot_path}")
         raise
-
 
 
 def actualizar_google_sheets(valor):
