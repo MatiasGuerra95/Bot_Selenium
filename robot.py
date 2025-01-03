@@ -61,25 +61,39 @@ def login_sistema_requerimientos(driver):
 
 def navegar_menu_soporte_operativo(driver):
     try:
-        WebDriverWait(driver, 15).until(
+        print("Intentando hacer clic en 'Soporte operativo'...")
+        # Captura de pantalla antes de la interacción
+        driver.save_screenshot("antes_soporte_operativo.png")
+
+        soporte_operativo = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Soporte operativo')]"))
-        ).click()
-        print("Clic en 'Soporte operativo'.")
+        )
+        soporte_operativo.click()
+        print("Clic en 'Soporte operativo' realizado.")
 
-        WebDriverWait(driver, 15).until(
+        print("Intentando hacer clic en 'Personal Externo'...")
+        driver.save_screenshot("antes_personal_externo.png")
+
+        personal_externo = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Personal Externo')]/.."))
-        ).click()
-        print("Clic en 'Personal Externo'.")
+        )
+        personal_externo.click()
+        print("Clic en 'Personal Externo' realizado.")
 
-        WebDriverWait(driver, 15).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Estado de solicitudes Personal Externo')]")
-        )).click()
-        print("Clic en 'Estado de solicitudes Personal Externo'.")
-        time.sleep(2)
+        print("Intentando hacer clic en 'Estado de solicitudes Personal Externo'...")
+        driver.save_screenshot("antes_estado_solicitudes.png")
+
+        estado_solicitudes = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Estado de solicitudes Personal Externo')]"))
+        )
+        estado_solicitudes.click()
+        print("Clic en 'Estado de solicitudes Personal Externo' realizado.")
+
     except Exception as e:
         print(f"Error navegando el menú: {e}")
-        driver.save_screenshot("error_menu.png")
+        driver.save_screenshot("error_navegando_menu.png")
         raise
+
 
 def extraer_numero_requerimiento(driver):
     try:
