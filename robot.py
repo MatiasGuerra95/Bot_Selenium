@@ -12,7 +12,7 @@ import os
 
 # Configurar logging
 logging.basicConfig(
-    filename='robot.log',
+    filename='script.log',
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
@@ -73,7 +73,7 @@ def navegar_menu_soporte_operativo(driver):
     try:
         logging.info("Intentando hacer clic en 'Soporte operativo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@class='nav-link btn btn-default-a dropdown-toggle' and contains(text(),'Soporte operativo')]")
+            EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'dropdown-toggle') and contains(text(),'Soporte operativo')]")
         )).click()
         logging.info("Clic en 'Soporte operativo' realizado.")
 
@@ -106,8 +106,8 @@ def ingresar_y_extraer_numero(driver):
         time.sleep(3)
 
         logging.info("Intentando extraer el número de solicitud desde la página de detalles...")
-        numero_solicitud = WebDriverWait(driver, 20).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, "span.breadcrumb-item.active.current"))
+        numero_solicitud = WebDriverWait(driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//span[@class='breadcrumb-item active current']"))
         ).text
 
         numero_solicitud = numero_solicitud.replace("Solicitud N°", "").strip()
