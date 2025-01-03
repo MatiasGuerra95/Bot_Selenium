@@ -49,7 +49,7 @@ jobs:
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: |
-          echo "${{ secrets.GOOGLE_CREDENTIALS }}" > service_account.json
+          echo '${{ secrets.GOOGLE_CREDENTIALS }}' > service_account.json
 
       # 7. Ejecutar el script de Selenium
       - name: Ejecutar script Selenium
