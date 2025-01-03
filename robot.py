@@ -84,19 +84,19 @@ def navegar_menu_soporte_operativo(driver):
         logging.info("Intentando hacer clic en 'Soporte operativo'...")
         WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'dropdown-toggle') and contains(text(),'Soporte operativo')]")
-        ).click())
+        )).click()
         logging.info("Clic en 'Soporte operativo' realizado.")
 
         logging.info("Intentando hacer clic en 'Personal Externo'...")
         WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//a[@href='#module_hrm']//span[contains(text(),'Personal Externo')]")
-        ).click())
+        )).click()
         logging.info("Clic en 'Personal Externo' realizado.")
 
         logging.info("Intentando hacer clic en 'Estado de solicitudes Personal Externo'...")
         WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal' and contains(text(),'Estado de solicitudes Personal Externo')]")
-        ).click())
+        )).click()
         logging.info("Clic en 'Estado de solicitudes Personal Externo' realizado.")
 
         time.sleep(2)
