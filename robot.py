@@ -64,28 +64,35 @@ def login_sistema_requerimientos(driver):
 def navegar_menu_soporte_operativo(driver):
     try:
         print("Intentando hacer clic en 'Soporte operativo'...")
-        WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Soporte operativo')]")
-        )).click()
+        soporte_operativo = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//a[contains(text(),'Soporte operativo')]"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView(true);", soporte_operativo)
+        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Soporte operativo')]"))).click()
         print("Clic en 'Soporte operativo' realizado.")
 
         print("Intentando hacer clic en 'Personal Externo'...")
-        WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Personal Externo')]/..")
-        )).click()
+        personal_externo = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Personal Externo')]/.."))
+        )
+        driver.execute_script("arguments[0].scrollIntoView(true);", personal_externo)
+        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Personal Externo')]/.."))).click()
         print("Clic en 'Personal Externo' realizado.")
 
         print("Intentando hacer clic en 'Estado de solicitudes Personal Externo'...")
-        WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Estado de solicitudes Personal Externo')]")
-        )).click()
+        estado_solicitudes = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//a[contains(text(),'Estado de solicitudes Personal Externo')]"))
+        )
+        driver.execute_script("arguments[0].scrollIntoView(true);", estado_solicitudes)
+        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "//a[contains(text(),'Estado de solicitudes Personal Externo')]"))).click()
         print("Clic en 'Estado de solicitudes Personal Externo' realizado.")
-
         time.sleep(2)
 
     except Exception as e:
         print(f"Error navegando el menú: {e}")
+        driver.save_screenshot("error_navegacion_menu.png")
         raise
+
 
 def ingresar_y_extraer_numero(driver):
     try:
