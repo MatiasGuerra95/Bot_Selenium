@@ -97,23 +97,17 @@ def navegar_menu_soporte_operativo(driver):
 
 def ingresar_y_extraer_numero(driver):
     try:
-        logging.info("Intentando hacer clic en el botón 'Ver' de la primera solicitud...")
-        boton_ver = WebDriverWait(driver, 30).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, "a.btn.btn-sm.btn-primary"))
+        logging.info("Intentando hacer clic en el enlace del número de la primera solicitud...")
+        # Localizar el enlace por su clase y hacer clic
+        enlace_numero = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//td[@class='sorting_1']/a[contains(@class, 'text-orange')]"))
         )
-        boton_ver.click()
-        logging.info("Clic en el botón 'Ver' realizado.")
-        time.sleep(5)  # Espera adicional para la carga completa de la página.
+        enlace_numero.click()
+        logging.info("Clic en el enlace del número de la solicitud realizado.")
+        time.sleep(5)
 
         logging.info("Intentando extraer el número de solicitud desde el encabezado de la página...")
-
-        # Si el elemento está en un iframe, cambiaremos el contexto
-        iframes = driver.find_elements(By.TAG_NAME, "iframe")
-        if iframes:
-            logging.info("Cambiando al primer iframe encontrado...")
-            driver.switch_to.frame(iframes[0])
-
-        numero_solicitud_element = WebDriverWait(driver, 40).until(
+        numero_solicitud_element = WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.XPATH, "//h1[contains(text(),'Solicitud de Personal')]"))
         )
         numero_solicitud_texto = numero_solicitud_element.text
@@ -127,10 +121,6 @@ def ingresar_y_extraer_numero(driver):
             raise ValueError("Formato inesperado para el número de solicitud.")
 
         logging.info(f"Número de solicitud extraído: {numero_solicitud}")
-
-        # Regresar al contexto principal si se cambió al iframe
-        driver.switch_to.default_content()
-
         return numero_solicitud
 
     except Exception as e:
@@ -139,7 +129,6 @@ def ingresar_y_extraer_numero(driver):
         logging.error(f"Error al ingresar o extraer el número de solicitud: {e}")
         logging.error(f"Captura de pantalla guardada en: {screenshot_path}")
         raise
-
 
 def actualizar_google_sheets(valor):
     try:
