@@ -39,7 +39,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive"
 ]
 SPREADSHEET_ID = "1bGo4MAwjZwVhQmzTjksRoHV6UuaPaYa-UVYB21vL_Ls"
-RANGE_NAME = "Principal!A3:A"
+RANGE_NAME = "Principal!A3:G3"
 
 def setup_driver():
     options = Options()
@@ -83,20 +83,20 @@ def navegar_menu_soporte_operativo(driver):
     try:
         logging.info("Intentando hacer clic en 'Soporte operativo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'dropdown-toggle') and contains(text(),'Soporte operativo')]"))
-        ).click()
+            EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'dropdown-toggle') and contains(text(),'Soporte operativo')]")
+        ).click())
         logging.info("Clic en 'Soporte operativo' realizado.")
 
         logging.info("Intentando hacer clic en 'Personal Externo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@href='#module_hrm']//span[contains(text(),'Personal Externo')]"))
-        ).click()
+            EC.element_to_be_clickable((By.XPATH, "//a[@href='#module_hrm']//span[contains(text(),'Personal Externo')]")
+        ).click())
         logging.info("Clic en 'Personal Externo' realizado.")
 
         logging.info("Intentando hacer clic en 'Estado de solicitudes Personal Externo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal' and contains(text(),'Estado de solicitudes Personal Externo')]"))
-        ).click()
+            EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal' and contains(text(),'Estado de solicitudes Personal Externo')]")
+        ).click())
         logging.info("Clic en 'Estado de solicitudes Personal Externo' realizado.")
 
         time.sleep(2)
@@ -105,43 +105,95 @@ def navegar_menu_soporte_operativo(driver):
         logging.error(f"Error navegando el menú: {e}")
         raise
 
-def ingresar_y_extraer_numero(driver):
+def ingresar_y_extraer_datos(driver):
     try:
-        logging.info("Intentando extraer el número de la primera solicitud desde la tabla...")
-        # Localizar el enlace dentro de la primera celda de la tabla
+        logging.info("Intentando extraer datos de la solicitud...")
+
+        # Extraer número de la solicitud desde la tabla
         numero_solicitud_element = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange"))
         )
-        # Obtener el texto del enlace
         numero_solicitud = numero_solicitud_element.text.strip()
-        logging.info(f"Número de solicitud extraído desde la tabla: {numero_solicitud}")
+        logging.info(f"Número de solicitud extraído: {numero_solicitud}")
 
-        # Hacer clic en el número de la primera solicitud si es necesario
-        logging.info("Intentando hacer clic en el número de la primera solicitud...")
+        # Hacer clic en el número de la solicitud
         numero_solicitud_element.click()
         logging.info("Clic en el número de la primera solicitud realizado.")
         time.sleep(3)
 
-        return numero_solicitud
+        # Extraer Cargo solicitado
+        cargo = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Cargo solicitado:')]/following-sibling::span"))
+        ).text.strip()
+
+        # Extraer Sucursal o Dirección
+        sucursal = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Dirección confirmada:')]/following-sibling::span"))
+        ).text.strip()
+
+        # Extraer Fecha de Inicio
+        fecha_inicio = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Fecha de inicio:')]/following-sibling::span"))
+        ).text.strip()
+
+        # Extraer Fecha de Término
+        fecha_termino = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Fecha de término:')]/following-sibling::span"))
+        ).text.strip()
+
+        # Extraer Causal
+        causal = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.XPATH, "//strong[contains(text(), 'Causal solicitud:')]/following-sibling::span"))
+        ).text.strip()
+
+        # Generar enlace para la solicitud
+        link = f"https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/{numero_solicitud}"
+
+        # Almacenar todos los datos en un diccionario
+        datos = {
+            "numero_solicitud": numero_solicitud,
+            "cargo": cargo,
+            "sucursal": sucursal,
+            "fecha_inicio": fecha_inicio,
+            "fecha_termino": fecha_termino,
+            "causal": causal,
+            "link": link
+        }
+        logging.info(f"Datos extraídos: {datos}")
+        return datos
 
     except Exception as e:
-        logging.error(f"Error al ingresar o extraer el número de solicitud: {e}")
+        logging.error(f"Error al extraer datos de la solicitud: {e}")
         raise
 
-def actualizar_google_sheets(valor):
+def actualizar_google_sheets(datos):
     try:
         logging.info("Intentando actualizar Google Sheets...")
         creds = Credentials.from_service_account_file("service_account.json", scopes=SCOPES)
         service = build("sheets", "v4", credentials=creds)
-        values = [[valor]]
+
+        # Crear la fila con los datos
+        values = [[
+            datos["numero_solicitud"],
+            datos["cargo"],
+            datos["sucursal"],
+            datos["fecha_inicio"],
+            datos["fecha_termino"],
+            datos["causal"],
+            datos["link"]
+        ]]
+
+        # Preparar el cuerpo de la solicitud
         body = {"values": values}
-        result = service.spreadsheets().values().append(
+
+        # Actualizar las celdas en Google Sheets
+        result = service.spreadsheets().values().update(
             spreadsheetId=SPREADSHEET_ID,
             range=RANGE_NAME,
             valueInputOption="USER_ENTERED",
             body=body,
         ).execute()
-        logging.info(f"{result.get('updates').get('updatedCells')} celda(s) actualizada(s) en Google Sheets.")
+        logging.info(f"{result.get('updatedCells')} celda(s) actualizada(s) en Google Sheets.")
 
     except Exception as e:
         logging.error(f"Error actualizando Google Sheets: {e}")
@@ -152,8 +204,8 @@ def main():
     try:
         login_sistema_requerimientos(driver)
         navegar_menu_soporte_operativo(driver)
-        numero_requerimiento = ingresar_y_extraer_numero(driver)
-        actualizar_google_sheets(numero_requerimiento)
+        datos = ingresar_y_extraer_datos(driver)
+        actualizar_google_sheets(datos)
     finally:
         driver.quit()
 
