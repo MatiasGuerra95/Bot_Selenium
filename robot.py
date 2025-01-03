@@ -126,6 +126,7 @@ def ingresar_y_extraer_datos(driver):
             EC.element_to_be_clickable((By.XPATH, "//div[@data-toggle='collapse' and @aria-controls='datos_solicitud2']"))
         )
         driver.execute_script("arguments[0].scrollIntoView(true);", datos_solicitud_button)
+        time.sleep(1)
         datos_solicitud_button.click()
         logging.info("Clic en 'Datos de la solicitud' realizado.")
         time.sleep(2)
