@@ -14,8 +14,18 @@ import os
 logging.basicConfig(
     filename='robot.log',
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filemode='w',  # Sobrescribe el archivo cada vez que se ejecuta el script
 )
+
+# Agregar un manejador de flujo para que también muestre los logs en la consola
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+console_handler.setFormatter(formatter)
+
+# Añadir el manejador de consola al logger
+logging.getLogger().addHandler(console_handler)
 
 # Cargar variables de entorno
 from dotenv import load_dotenv
@@ -96,28 +106,21 @@ def navegar_menu_soporte_operativo(driver):
 
 def ingresar_y_extraer_numero(driver):
     try:
-        logging.info("Intentando hacer clic en el número de la primera solicitud...")
-        numero_link = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange"))
+        logging.info("Intentando extraer el número de la primera solicitud desde la tabla...")
+        # Localizar el enlace dentro de la primera celda de la tabla
+        numero_solicitud_element = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange"))
         )
-        numero_link.click()
+        # Obtener el texto del enlace
+        numero_solicitud = numero_solicitud_element.text.strip()
+        logging.info(f"Número de solicitud extraído desde la tabla: {numero_solicitud}")
+
+        # Hacer clic en el número de la primera solicitud si es necesario
+        logging.info("Intentando hacer clic en el número de la primera solicitud...")
+        numero_solicitud_element.click()
         logging.info("Clic en el número de la primera solicitud realizado.")
         time.sleep(3)
 
-        logging.info("Intentando extraer el número de solicitud desde el encabezado de la página...")
-        try:
-            numero_solicitud_element = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.XPATH, "//span[@class='breadcrumb-item active current']"))
-            )
-            numero_solicitud = numero_solicitud_element.text.replace("Solicitud N°", "").strip()
-        except Exception as e:
-            logging.warning("No se encontró el número en el breadcrumb, intentando el encabezado principal...")
-            numero_solicitud_element = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.XPATH, "//h1[contains(@class, 'font-weight-300 mb-0')]")
-            ))
-            numero_solicitud = numero_solicitud_element.text.split("N°")[-1].strip()
-
-        logging.info(f"Número de solicitud extraído: {numero_solicitud}")
         return numero_solicitud
 
     except Exception as e:
