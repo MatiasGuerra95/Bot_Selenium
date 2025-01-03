@@ -34,8 +34,7 @@ def setup_driver():
     options = Options()
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--headless")
-    options.add_argument("--remote-debugging-port=9222")
+    options.add_argument("--headless")  # Para ejecución en entornos sin GUI
     options.add_argument("--window-size=1920,1080")
     service = Service("/usr/local/bin/chromedriver")
     driver = webdriver.Chrome(service=service, options=options)
@@ -73,20 +72,20 @@ def navegar_menu_soporte_operativo(driver):
     try:
         logging.info("Intentando hacer clic en 'Soporte operativo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'dropdown-toggle') and contains(text(),'Soporte operativo')]")
-        )).click()
+            EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'dropdown-toggle') and contains(text(),'Soporte operativo')]"))
+        ).click()
         logging.info("Clic en 'Soporte operativo' realizado.")
 
         logging.info("Intentando hacer clic en 'Personal Externo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@href='#module_hrm']//span[contains(text(),'Personal Externo')]")
-        )).click()
+            EC.element_to_be_clickable((By.XPATH, "//a[@href='#module_hrm']//span[contains(text(),'Personal Externo')]"))
+        ).click()
         logging.info("Clic en 'Personal Externo' realizado.")
 
         logging.info("Intentando hacer clic en 'Estado de solicitudes Personal Externo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal' and contains(text(),'Estado de solicitudes Personal Externo')]")
-        )).click()
+            EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal' and contains(text(),'Estado de solicitudes Personal Externo')]"))
+        ).click()
         logging.info("Clic en 'Estado de solicitudes Personal Externo' realizado.")
 
         time.sleep(2)
@@ -97,37 +96,32 @@ def navegar_menu_soporte_operativo(driver):
 
 def ingresar_y_extraer_numero(driver):
     try:
-        logging.info("Intentando hacer clic en el enlace del número de la primera solicitud...")
-        # Localizar el enlace por su clase y hacer clic
-        enlace_numero = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//td[@class='sorting_1']/a[contains(@class, 'text-orange')]"))
+        logging.info("Intentando hacer clic en el número de la primera solicitud...")
+        numero_link = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange"))
         )
-        enlace_numero.click()
-        logging.info("Clic en el enlace del número de la solicitud realizado.")
-        time.sleep(5)
+        numero_link.click()
+        logging.info("Clic en el número de la primera solicitud realizado.")
+        time.sleep(3)
 
         logging.info("Intentando extraer el número de solicitud desde el encabezado de la página...")
-        numero_solicitud_element = WebDriverWait(driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//h1[contains(text(),'Solicitud de Personal')]"))
-        )
-        numero_solicitud_texto = numero_solicitud_element.text
-        logging.info(f"Texto extraído del encabezado: {numero_solicitud_texto}")
-
-        # Extraer el número de la solicitud
-        if "N°" in numero_solicitud_texto:
-            numero_solicitud = numero_solicitud_texto.split("N°")[1].strip()
-        else:
-            logging.error("El formato del número de solicitud no es el esperado.")
-            raise ValueError("Formato inesperado para el número de solicitud.")
+        try:
+            numero_solicitud_element = WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//span[@class='breadcrumb-item active current']"))
+            )
+            numero_solicitud = numero_solicitud_element.text.replace("Solicitud N°", "").strip()
+        except Exception as e:
+            logging.warning("No se encontró el número en el breadcrumb, intentando el encabezado principal...")
+            numero_solicitud_element = WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//h1[contains(@class, 'font-weight-300 mb-0')]")
+            ))
+            numero_solicitud = numero_solicitud_element.text.split("N°")[-1].strip()
 
         logging.info(f"Número de solicitud extraído: {numero_solicitud}")
         return numero_solicitud
 
     except Exception as e:
-        screenshot_path = "error_screenshot.png"
-        driver.save_screenshot(screenshot_path)
         logging.error(f"Error al ingresar o extraer el número de solicitud: {e}")
-        logging.error(f"Captura de pantalla guardada en: {screenshot_path}")
         raise
 
 def actualizar_google_sheets(valor):

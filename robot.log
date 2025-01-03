@@ -62,3 +62,156 @@ Stacktrace:
 #19 0x7fe611e1dc3c <unknown>
 
 2025-01-03 11:46:27,568 - ERROR - Captura de pantalla guardada en: error_screenshot.png
+2025-01-03 11:55:40,394 - INFO - Navegando al portal de sistema de requerimientos.
+2025-01-03 11:55:52,919 - INFO - Intentando hacer clic en 'Soy Proveedor'...
+2025-01-03 11:56:12,343 - ERROR - Error durante el inicio de sesión: Message: 
+Stacktrace:
+#0 0x55d1de88b6da <unknown>
+#1 0x55d1de39ff80 <unknown>
+#2 0x55d1de3ecb46 <unknown>
+#3 0x55d1de3ecde1 <unknown>
+#4 0x55d1de432174 <unknown>
+#5 0x55d1de410bdd <unknown>
+#6 0x55d1de42f69d <unknown>
+#7 0x55d1de410953 <unknown>
+#8 0x55d1de3df72e <unknown>
+#9 0x55d1de3e079e <unknown>
+#10 0x55d1de856f1b <unknown>
+#11 0x55d1de85aeb8 <unknown>
+#12 0x55d1de84442c <unknown>
+#13 0x55d1de85ba37 <unknown>
+#14 0x55d1de828fef <unknown>
+#15 0x55d1de879ad8 <unknown>
+#16 0x55d1de879ca0 <unknown>
+#17 0x55d1de88a556 <unknown>
+#18 0x7fe153b8da94 <unknown>
+#19 0x7fe153c1ac3c <unknown>
+
+2025-01-03 11:56:16,725 - INFO - Navegando al portal de sistema de requerimientos.
+2025-01-03 11:56:17,744 - INFO - Intentando hacer clic en 'Soy Proveedor'...
+2025-01-03 11:56:17,978 - INFO - Clic en 'Soy Proveedor' realizado.
+2025-01-03 11:56:17,978 - INFO - Ingresando credenciales...
+2025-01-03 11:56:18,722 - INFO - Intentando hacer clic en 'Iniciar Sesión'...
+2025-01-03 11:56:22,910 - INFO - Inicio de sesión realizado.
+2025-01-03 11:56:27,910 - INFO - Intentando hacer clic en 'Soporte operativo'...
+2025-01-03 11:56:28,012 - INFO - Clic en 'Soporte operativo' realizado.
+2025-01-03 11:56:28,012 - INFO - Intentando hacer clic en 'Personal Externo'...
+2025-01-03 11:56:28,115 - INFO - Clic en 'Personal Externo' realizado.
+2025-01-03 11:56:28,115 - INFO - Intentando hacer clic en 'Estado de solicitudes Personal Externo'...
+2025-01-03 11:56:29,790 - INFO - Clic en 'Estado de solicitudes Personal Externo' realizado.
+2025-01-03 11:56:31,791 - INFO - Intentando hacer clic en el enlace del número de la primera solicitud...
+2025-01-03 11:56:31,925 - INFO - Clic en el enlace del número de la solicitud realizado.
+2025-01-03 11:56:36,008 - INFO - Intentando extraer el número de solicitud desde el encabezado de la página...
+2025-01-03 11:57:05,637 - ERROR - Error al ingresar o extraer el número de solicitud: Message: 
+Stacktrace:
+#0 0x5567ae4296da <unknown>
+#1 0x5567adf3df80 <unknown>
+#2 0x5567adf8ab46 <unknown>
+#3 0x5567adf8ade1 <unknown>
+#4 0x5567adfd0174 <unknown>
+#5 0x5567adfaebdd <unknown>
+#6 0x5567adfcd69d <unknown>
+#7 0x5567adfae953 <unknown>
+#8 0x5567adf7d72e <unknown>
+#9 0x5567adf7e79e <unknown>
+#10 0x5567ae3f4f1b <unknown>
+#11 0x5567ae3f8eb8 <unknown>
+#12 0x5567ae3e242c <unknown>
+#13 0x5567ae3f9a37 <unknown>
+#14 0x5567ae3c6fef <unknown>
+#15 0x5567ae417ad8 <unknown>
+#16 0x5567ae417ca0 <unknown>
+#17 0x5567ae428556 <unknown>
+#18 0x7f1bac294a94 <unknown>
+#19 0x7f1bac321c3c <unknown>
+
+2025-01-03 11:57:05,637 - ERROR - Captura de pantalla guardada en: error_screenshot.png
+2025-01-03 11:58:57,265 - INFO - Navegando al portal de sistema de requerimientos.
+2025-01-03 11:59:09,880 - INFO - Intentando hacer clic en 'Soy Proveedor'...
+2025-01-03 11:59:12,652 - ERROR - Error durante el inicio de sesión: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=130.0.6723.116)
+Stacktrace:
+#0 0x55b662e5d6da <unknown>
+#1 0x55b662971f80 <unknown>
+#2 0x55b6629482ef <unknown>
+#3 0x55b6629eaeed <unknown>
+#4 0x55b662a00f49 <unknown>
+#5 0x55b6629e2953 <unknown>
+#6 0x55b6629b172e <unknown>
+#7 0x55b6629b279e <unknown>
+#8 0x55b662e28f1b <unknown>
+#9 0x55b662e2ceb8 <unknown>
+#10 0x55b662e1642c <unknown>
+#11 0x55b662e2da37 <unknown>
+#12 0x55b662dfafef <unknown>
+#13 0x55b662e4bad8 <unknown>
+#14 0x55b662e4bca0 <unknown>
+#15 0x55b662e5c556 <unknown>
+#16 0x7fbf6ea6da94 <unknown>
+#17 0x7fbf6eafac3c <unknown>
+
+2025-01-03 11:59:15,754 - INFO - Navegando al portal de sistema de requerimientos.
+2025-01-03 11:59:17,576 - INFO - Intentando hacer clic en 'Soy Proveedor'...
+2025-01-03 11:59:17,771 - INFO - Clic en 'Soy Proveedor' realizado.
+2025-01-03 11:59:17,771 - INFO - Ingresando credenciales...
+2025-01-03 11:59:18,729 - INFO - Intentando hacer clic en 'Iniciar Sesión'...
+2025-01-03 11:59:22,954 - INFO - Inicio de sesión realizado.
+2025-01-03 11:59:27,955 - INFO - Intentando hacer clic en 'Soporte operativo'...
+2025-01-03 11:59:28,052 - INFO - Clic en 'Soporte operativo' realizado.
+2025-01-03 11:59:28,052 - INFO - Intentando hacer clic en 'Personal Externo'...
+2025-01-03 11:59:28,169 - INFO - Clic en 'Personal Externo' realizado.
+2025-01-03 11:59:28,169 - INFO - Intentando hacer clic en 'Estado de solicitudes Personal Externo'...
+2025-01-03 11:59:30,293 - INFO - Clic en 'Estado de solicitudes Personal Externo' realizado.
+2025-01-03 11:59:32,293 - INFO - Intentando hacer clic en el enlace del número de la primera solicitud...
+2025-01-03 11:59:32,952 - INFO - Clic en el enlace del número de la solicitud realizado.
+2025-01-03 11:59:37,953 - INFO - Intentando extraer el número de solicitud desde el encabezado de la página...
+2025-01-03 12:00:07,680 - ERROR - Error al ingresar o extraer el número de solicitud: Message: 
+Stacktrace:
+#0 0x5638532136da <unknown>
+#1 0x563852d27f80 <unknown>
+#2 0x563852d74b46 <unknown>
+#3 0x563852d74de1 <unknown>
+#4 0x563852dba174 <unknown>
+#5 0x563852d98bdd <unknown>
+#6 0x563852db769d <unknown>
+#7 0x563852d98953 <unknown>
+#8 0x563852d6772e <unknown>
+#9 0x563852d6879e <unknown>
+#10 0x5638531def1b <unknown>
+#11 0x5638531e2eb8 <unknown>
+#12 0x5638531cc42c <unknown>
+#13 0x5638531e3a37 <unknown>
+#14 0x5638531b0fef <unknown>
+#15 0x563853201ad8 <unknown>
+#16 0x563853201ca0 <unknown>
+#17 0x563853212556 <unknown>
+#18 0x7faf5d0aea94 <unknown>
+#19 0x7faf5d13bc3c <unknown>
+
+2025-01-03 12:00:07,680 - ERROR - Captura de pantalla guardada en: error_screenshot.png
+2025-01-03 12:04:06,543 - INFO - Navegando al portal de sistema de requerimientos.
+2025-01-03 12:04:19,075 - INFO - Intentando hacer clic en 'Soy Proveedor'...
+2025-01-03 12:04:38,522 - ERROR - Error durante el inicio de sesión: Message: 
+Stacktrace:
+#0 0x55d092ade6da <unknown>
+#1 0x55d0925f2f80 <unknown>
+#2 0x55d09263fb46 <unknown>
+#3 0x55d09263fde1 <unknown>
+#4 0x55d092685174 <unknown>
+#5 0x55d092663bdd <unknown>
+#6 0x55d09268269d <unknown>
+#7 0x55d092663953 <unknown>
+#8 0x55d09263272e <unknown>
+#9 0x55d09263379e <unknown>
+#10 0x55d092aa9f1b <unknown>
+#11 0x55d092aadeb8 <unknown>
+#12 0x55d092a9742c <unknown>
+#13 0x55d092aaea37 <unknown>
+#14 0x55d092a7bfef <unknown>
+#15 0x55d092accad8 <unknown>
+#16 0x55d092accca0 <unknown>
+#17 0x55d092add556 <unknown>
+#18 0x7fbe3535fa94 <unknown>
+#19 0x7fbe353ecc3c <unknown>
+
