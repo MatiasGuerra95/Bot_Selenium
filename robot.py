@@ -93,22 +93,31 @@ def navegar_menu_soporte_operativo(driver):
         raise
 
 
-def extraer_numero_requerimiento(driver):
+def ingresar_y_extraer_numero(driver):
     try:
-        print("Intentando extraer el número de requerimiento...")
-        # Localiza el primer enlace en la tabla con la clase específica
-        numero_requerimiento = WebDriverWait(driver, 20).until(
-            EC.visibility_of_element_located((By.XPATH, "//table[@id='dt_review']//a[contains(@class, 'btn-sm text-orange')]"))
-        ).text
-        print(f"Número de requerimiento encontrado: {numero_requerimiento}")
-        return numero_requerimiento
+        print("Intentando ingresar a la solicitud desde la tabla...")
+        
+        # Localizar el enlace del primer número de solicitud y hacer clic
+        numero_enlace = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//table[@id='dt_review']//a[contains(@class, 'btn-sm text-orange')]"))
+        )
+        numero_enlace.click()
+        print("Ingreso a la solicitud realizado.")
+
+        # Esperar a que la página cargue el detalle de la solicitud
+        WebDriverWait(driver, 20).until(
+            EC.visibility_of_element_located((By.CSS_SELECTOR, "span.breadcrumb-item.active.current"))
+        )
+
+        # Extraer el número de solicitud desde el encabezado
+        numero_detalle = driver.find_element(By.CSS_SELECTOR, "span.breadcrumb-item.active.current").text
+        print(f"Número de solicitud extraído: {numero_detalle.strip()}")
+        return numero_detalle.strip()
     except Exception as e:
-        print(f"Error al extraer el número de requerimiento: {e}")
+        print(f"Error al ingresar o extraer el número de solicitud: {e}")
         print("HTML actual del DOM:")
-        print(driver.page_source[:1000])  # Muestra los primeros 1000 caracteres del HTML actual
+        print(driver.page_source[:3000])  # Imprimir los primeros 3000 caracteres del HTML
         raise
-
-
 
 
 def actualizar_google_sheets(valor):
@@ -134,7 +143,7 @@ def main():
     try:
         login_sistema_requerimientos(driver)
         navegar_menu_soporte_operativo(driver)
-        numero_requerimiento = extraer_numero_requerimiento(driver)
+        numero_requerimiento = ingresar_y_extraer_numero(driver)
         actualizar_google_sheets(numero_requerimiento)
     finally:
         driver.quit()
