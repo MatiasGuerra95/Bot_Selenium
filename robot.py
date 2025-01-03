@@ -98,26 +98,38 @@ def navegar_menu_soporte_operativo(driver):
 def ingresar_y_extraer_numero(driver):
     try:
         logging.info("Intentando hacer clic en el botón 'Ver' de la primera solicitud...")
-        boton_ver = WebDriverWait(driver, 20).until(
+        boton_ver = WebDriverWait(driver, 30).until(
             EC.element_to_be_clickable((By.CSS_SELECTOR, "a.btn.btn-sm.btn-primary"))
         )
         boton_ver.click()
         logging.info("Clic en el botón 'Ver' realizado.")
-        time.sleep(3)
+        time.sleep(5)  # Agregar una pausa para esperar la carga de la página.
 
         logging.info("Intentando extraer el número de solicitud desde el encabezado de la página...")
-        numero_solicitud_element = WebDriverWait(driver, 30).until(
+        numero_solicitud_element = WebDriverWait(driver, 40).until(
             EC.presence_of_element_located((By.XPATH, "//h1[contains(text(),'Solicitud de Personal')]"))
         )
         numero_solicitud_texto = numero_solicitud_element.text
-        numero_solicitud = numero_solicitud_texto.split("N°")[1].strip()
+        logging.info(f"Texto extraído del encabezado: {numero_solicitud_texto}")
+
+        # Extraer el número de la solicitud
+        if "N°" in numero_solicitud_texto:
+            numero_solicitud = numero_solicitud_texto.split("N°")[1].strip()
+        else:
+            logging.error("El formato del número de solicitud no es el esperado.")
+            raise ValueError("Formato inesperado para el número de solicitud.")
 
         logging.info(f"Número de solicitud extraído: {numero_solicitud}")
         return numero_solicitud
 
     except Exception as e:
+        # Capturar una captura de pantalla en caso de error
+        screenshot_path = "error_screenshot.png"
+        driver.save_screenshot(screenshot_path)
         logging.error(f"Error al ingresar o extraer el número de solicitud: {e}")
+        logging.error(f"Captura de pantalla guardada en: {screenshot_path}")
         raise
+
 
 
 def actualizar_google_sheets(valor):
