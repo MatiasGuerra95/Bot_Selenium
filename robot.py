@@ -95,30 +95,22 @@ def navegar_menu_soporte_operativo(driver):
 
 def ingresar_y_extraer_numero(driver):
     try:
-        print("Intentando ingresar a la solicitud desde la tabla...")
-
-        # Esperar y localizar el enlace del primer número de solicitud
+        # Esperar a que el enlace del primer número de solicitud sea visible y hacer clic
         numero_enlace = WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//table[@id='dt_review']//tbody/tr[1]/td[1]/a[contains(@class, 'btn-sm text-orange')]"))
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "a.btn.btn-sm.text-orange"))
         )
-        print("Enlace del número de solicitud encontrado.")
         numero_enlace.click()
-        print("Ingreso a la solicitud realizado.")
 
-        # Esperar a que la página interna cargue y localizar el número
-        WebDriverWait(driver, 20).until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, "span.breadcrumb-item.active.current"))
-        )
-        numero_detalle = driver.find_element(By.CSS_SELECTOR, "span.breadcrumb-item.active.current").text
-        print(f"Número de solicitud extraído: {numero_detalle.strip()}")
-        return numero_detalle.strip()
+        # Cambiar el enfoque a la nueva página y esperar el breadcrumb con el número de solicitud
+        numero_requerimiento = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "span.breadcrumb-item.active.current"))
+        ).text.strip()
+        
+        print(f"Número de solicitud extraído: {numero_requerimiento}")
+        return numero_requerimiento
     except Exception as e:
         print(f"Error al ingresar o extraer el número de solicitud: {e}")
-        # Guardar el HTML del DOM actual para depuración
-        with open("dom_error.html", "w", encoding="utf-8") as f:
-            f.write(driver.page_source)
-        print("HTML actual del DOM guardado en 'dom_error.html'")
-        raise
+        return None
 
 
 def actualizar_google_sheets(valor):
