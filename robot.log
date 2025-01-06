@@ -1,38 +1,34 @@
-2025-01-03 15:17:50,417 - INFO - Navegando al portal de sistema de requerimientos.
-2025-01-03 15:18:03,998 - INFO - Intentando hacer clic en 'Soy Proveedor'...
-2025-01-03 15:18:04,200 - INFO - Clic en 'Soy Proveedor' realizado.
-2025-01-03 15:18:04,201 - INFO - Ingresando credenciales...
-2025-01-03 15:18:05,040 - INFO - Intentando hacer clic en 'Iniciar Sesión'...
-2025-01-03 15:18:09,173 - INFO - Inicio de sesión realizado.
-2025-01-03 15:18:14,174 - INFO - Intentando hacer clic en 'Soporte operativo'...
-2025-01-03 15:18:14,314 - INFO - Clic en 'Soporte operativo' realizado.
-2025-01-03 15:18:14,314 - INFO - Intentando hacer clic en 'Personal Externo'...
-2025-01-03 15:18:14,451 - INFO - Clic en 'Personal Externo' realizado.
-2025-01-03 15:18:14,451 - INFO - Intentando hacer clic en 'Estado de solicitudes Personal Externo'...
-2025-01-03 15:18:16,319 - INFO - Clic en 'Estado de solicitudes Personal Externo' realizado.
-2025-01-03 15:18:18,320 - INFO - Intentando extraer datos de la solicitud...
-2025-01-03 15:18:18,384 - INFO - Número de solicitud extraído: 40634
-2025-01-03 15:18:18,548 - INFO - Clic en el número de la primera solicitud realizado.
-2025-01-03 15:18:40,668 - ERROR - Error al extraer datos de la solicitud: Message: 
-Stacktrace:
-#0 0x55f49cb566da <unknown>
-#1 0x55f49c66af80 <unknown>
-#2 0x55f49c6b7b46 <unknown>
-#3 0x55f49c6b7de1 <unknown>
-#4 0x55f49c6fd174 <unknown>
-#5 0x55f49c6dbbdd <unknown>
-#6 0x55f49c6fa69d <unknown>
-#7 0x55f49c6db953 <unknown>
-#8 0x55f49c6aa72e <unknown>
-#9 0x55f49c6ab79e <unknown>
-#10 0x55f49cb21f1b <unknown>
-#11 0x55f49cb25eb8 <unknown>
-#12 0x55f49cb0f42c <unknown>
-#13 0x55f49cb26a37 <unknown>
-#14 0x55f49caf3fef <unknown>
-#15 0x55f49cb44ad8 <unknown>
-#16 0x55f49cb44ca0 <unknown>
-#17 0x55f49cb55556 <unknown>
-#18 0x7f693310ea94 <unknown>
-#19 0x7f693319bc3c <unknown>
-
+2025-01-06 15:02:16,141 - INFO - Navegando al portal de sistema de requerimientos.
+2025-01-06 15:02:29,120 - INFO - Intentando hacer clic en 'Soy Proveedor'...
+2025-01-06 15:02:29,295 - INFO - Clic en 'Soy Proveedor' realizado.
+2025-01-06 15:02:29,296 - INFO - Ingresando credenciales...
+2025-01-06 15:02:30,151 - INFO - Intentando hacer clic en 'Iniciar Sesión'...
+2025-01-06 15:02:36,500 - INFO - Inicio de sesión realizado.
+2025-01-06 15:02:41,500 - INFO - Intentando hacer clic en 'Soporte operativo'...
+2025-01-06 15:02:41,641 - INFO - Clic en 'Soporte operativo' realizado.
+2025-01-06 15:02:41,641 - INFO - Intentando hacer clic en 'Personal Externo'...
+2025-01-06 15:02:41,763 - INFO - Clic en 'Personal Externo' realizado.
+2025-01-06 15:02:41,763 - INFO - Intentando hacer clic en 'Estado de solicitudes Personal Externo'...
+2025-01-06 15:02:43,501 - INFO - Clic en 'Estado de solicitudes Personal Externo' realizado.
+2025-01-06 15:02:45,502 - INFO - Intentando extraer datos de la solicitud...
+2025-01-06 15:02:45,504 - INFO - Handle de la pestaña original: D01401AA9B8A2E5937D7C639F5040FC0
+2025-01-06 15:02:45,539 - INFO - Número de solicitud extraído: 40718
+2025-01-06 15:02:45,645 - INFO - Clic en el número de la primera solicitud realizado.
+2025-01-06 15:02:48,652 - INFO - Nueva pestaña abierta.
+2025-01-06 15:02:48,654 - INFO - Handles de ventanas abiertas: ['D01401AA9B8A2E5937D7C639F5040FC0', '933C27D6C56DCF8A7EE6374EFB12638C']
+2025-01-06 15:02:48,654 - INFO - Handle de la nueva pestaña: 933C27D6C56DCF8A7EE6374EFB12638C
+2025-01-06 15:02:48,657 - INFO - Cambio de foco a la nueva pestaña realizado.
+2025-01-06 15:02:48,671 - INFO - Título de la nueva pestaña: Sistema de requerimientos corporativo - Hello WorkflowController!
+2025-01-06 15:02:48,680 - INFO - URL de la nueva pestaña: https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40718
+2025-01-06 15:02:48,699 - INFO - Página de la nueva pestaña cargada exitosamente.
+2025-01-06 15:02:48,710 - INFO - HTML de la nueva pestaña guardado para depuración.
+2025-01-06 15:02:50,076 - INFO - Clic realizado usando ActionChains.
+2025-01-06 15:02:50,091 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-06 15:02:50,092 - INFO - Clic en 'Datos de la solicitud' realizado con éxito.
+2025-01-06 15:02:50,914 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-06 15:02:50,915 - INFO - Datos extraídos: {'numero_solicitud': '40718', 'cargo': 'Cajero', 'sucursal': '620 - Lumaco (Arturo Prat 522, Lumaco, Malleco)', 'fecha_inicio': '08/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40718'}
+2025-01-06 15:02:50,915 - INFO - Resultado retornado por ingresar_y_extraer_datos: ({'numero_solicitud': '40718', 'cargo': 'Cajero', 'sucursal': '620 - Lumaco (Arturo Prat 522, Lumaco, Malleco)', 'fecha_inicio': '08/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40718'}, {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False})
+2025-01-06 15:02:50,915 - INFO - Intentando actualizar Google Sheets...
+2025-01-06 15:02:50,917 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-06 15:02:52,060 - INFO - 17 celda(s) actualizada(s) en Google Sheets.
+2025-01-06 15:02:52,254 - INFO - Driver cerrado.
