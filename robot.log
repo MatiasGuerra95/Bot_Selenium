@@ -1,745 +1,116 @@
-2025-01-06 16:17:58,371 - INFO - Navegando al portal de sistema de requerimientos.
-2025-01-06 16:18:11,616 - INFO - Intentando hacer clic en 'Soy Proveedor'...
-2025-01-06 16:18:11,862 - INFO - Clic en 'Soy Proveedor' realizado.
-2025-01-06 16:18:11,862 - INFO - Ingresando credenciales...
-2025-01-06 16:18:12,910 - INFO - Intentando hacer clic en 'Iniciar Sesión'...
-2025-01-06 16:18:18,713 - INFO - Inicio de sesión realizado.
-2025-01-06 16:18:23,713 - INFO - Intentando hacer clic en 'Soporte operativo'...
-2025-01-06 16:18:23,827 - INFO - Clic en 'Soporte operativo' realizado.
-2025-01-06 16:18:23,827 - INFO - Intentando hacer clic en 'Personal Externo'...
-2025-01-06 16:18:23,957 - INFO - Clic en 'Personal Externo' realizado.
-2025-01-06 16:18:23,957 - INFO - Intentando hacer clic en 'Estado de solicitudes Personal Externo'...
-2025-01-06 16:18:25,363 - INFO - Clic en 'Estado de solicitudes Personal Externo' realizado.
-2025-01-06 16:18:27,364 - INFO - Intentando extraer datos de todas las solicitudes disponibles con paginación...
-2025-01-06 16:18:27,390 - INFO - Se encontraron 100 solicitudes en la tabla.
-2025-01-06 16:18:27,391 - INFO - Procesando solicitud 1 en la página actual...
-2025-01-06 16:18:27,440 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:18:31,798 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:18:31,812 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:18:43,099 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:18:43,477 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:18:43,478 - INFO - Datos extraídos para la solicitud 1: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-63 - Bancoestado Express Viña del Mar Arlegui (Arlegui #847, Viña del Mar, Valparaíso)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '21/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:18:43,623 - INFO - Procesando solicitud 2 en la página actual...
-2025-01-06 16:18:43,895 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:18:48,274 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:18:48,294 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:18:59,211 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:18:59,361 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:18:59,361 - INFO - Datos extraídos para la solicitud 2: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '519 - Coelemu (Pedro Leon Gallo 430, Coelemu, Itata)', 'fecha_inicio': '08/01/2025', 'fecha_termino': '21/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:18:59,419 - INFO - Procesando solicitud 3 en la página actual...
-2025-01-06 16:18:59,492 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:19:03,878 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:19:03,900 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:19:14,880 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:19:15,043 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:19:15,043 - INFO - Datos extraídos para la solicitud 3: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-102 - Bancoestado Express La Ligua (Esmeralda #579, La Ligua, Petorca)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '09/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:19:15,104 - INFO - Procesando solicitud 4 en la página actual...
-2025-01-06 16:19:15,162 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:19:19,559 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:19:19,568 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:19:30,469 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:19:30,636 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:19:30,636 - INFO - Datos extraídos para la solicitud 4: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '140 - Coquimbo Aldunate (Aldunate 1484, Coquimbo, Elqui)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '17/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:19:30,711 - INFO - Procesando solicitud 5 en la página actual...
-2025-01-06 16:19:30,865 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:19:35,332 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:19:35,347 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:19:46,162 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:19:46,302 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:19:46,302 - INFO - Datos extraídos para la solicitud 5: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '227 - La Calera (Carrera 683, Valparaíso, Valparaíso)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:19:46,361 - INFO - Procesando solicitud 6 en la página actual...
-2025-01-06 16:19:46,447 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:19:50,822 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:19:50,843 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:20:01,659 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:20:01,819 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:20:01,819 - INFO - Datos extraídos para la solicitud 6: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '444 - Longavi (Uno Oriente 280, Longaví, Linares)', 'fecha_inicio': '20/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Licencia médica maternal', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:20:01,880 - INFO - Procesando solicitud 7 en la página actual...
-2025-01-06 16:20:01,933 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:20:06,322 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:20:06,342 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:20:17,098 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:20:17,249 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:20:17,249 - INFO - Datos extraídos para la solicitud 7: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '534 - Chiguayante (Manuel Rodriguez 895, Chiguayante, Concepción)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '14/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:20:17,321 - INFO - Procesando solicitud 8 en la página actual...
-2025-01-06 16:20:17,375 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:20:21,768 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:20:21,784 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:20:32,803 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:20:32,966 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:20:32,966 - INFO - Datos extraídos para la solicitud 8: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '342 - Santiago Lo Prado (San Pablo 5877, Lo Prado, Santiago)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '24/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:20:33,043 - INFO - Procesando solicitud 9 en la página actual...
-2025-01-06 16:20:33,100 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:20:37,480 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:20:37,496 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:20:48,334 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:20:48,664 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:20:48,665 - INFO - Datos extraídos para la solicitud 9: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '435 - Talca (Uno Sur 971, Talca, Talca)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '06/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:20:48,778 - INFO - Procesando solicitud 10 en la página actual...
-2025-01-06 16:20:48,951 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:20:53,362 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:20:53,386 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:21:04,178 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:21:04,339 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:21:04,339 - INFO - Datos extraídos para la solicitud 10: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '240 - Valparaíso Brasil (Av. Brasil 1677, Valparaíso, Valparaíso)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '17/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:21:04,420 - INFO - Procesando solicitud 11 en la página actual...
-2025-01-06 16:21:04,519 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:21:08,900 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:21:08,916 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:21:20,152 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:21:20,316 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': True}
-2025-01-06 16:21:20,317 - INFO - Datos extraídos para la solicitud 11: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '534 - Chiguayante (Manuel Rodriguez 895, Chiguayante, Concepción)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '06/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:21:20,387 - INFO - Procesando solicitud 12 en la página actual...
-2025-01-06 16:21:20,444 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:21:24,834 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:21:24,852 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:21:35,576 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:21:35,720 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:21:35,721 - INFO - Datos extraídos para la solicitud 12: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (mesón)', 'sucursal': 'SERV-62 - Bancoestado Express Concepción Chacabuco (Av. Chacabuco #70, Concepción, Concepción)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '13/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:21:35,781 - INFO - Procesando solicitud 13 en la página actual...
-2025-01-06 16:21:35,875 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:21:40,250 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:21:40,267 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:21:51,061 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:21:51,198 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:21:51,198 - INFO - Datos extraídos para la solicitud 13: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-937 - Bancoestado Express Mapocho (Mapocho #4116, Quinta Normal, Santiago)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '06/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:21:51,256 - INFO - Procesando solicitud 14 en la página actual...
-2025-01-06 16:21:51,320 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:21:55,715 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:21:55,732 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:22:06,988 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:22:07,131 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:22:07,131 - INFO - Datos extraídos para la solicitud 14: {'numero_solicitud': 'N/A', 'cargo': 'Atención cliente', 'sucursal': '435 - Talca (Uno Sur 971, Talca, Talca)', 'fecha_inicio': '20/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:22:07,188 - INFO - Procesando solicitud 15 en la página actual...
-2025-01-06 16:22:07,243 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:22:11,631 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:22:11,645 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:22:22,906 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:22:23,055 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:22:23,055 - INFO - Datos extraídos para la solicitud 15: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-982 - Bancoestado Express Mall Estación San Borja (San Francisco de Borja #84, Local 676, Galería F, Mall Paseo Estación, Estación Central, Santiago)', 'fecha_inicio': '27/01/2025', 'fecha_termino': '07/02/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:22:23,115 - INFO - Procesando solicitud 16 en la página actual...
-2025-01-06 16:22:23,165 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:22:27,556 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:22:27,572 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:22:38,825 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:22:38,974 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:22:38,974 - INFO - Datos extraídos para la solicitud 16: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-993 - Bancoestado Express Temuco Portales (Portales #937, Temuco, Cautín)', 'fecha_inicio': '31/01/2025', 'fecha_termino': '03/03/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:22:39,038 - INFO - Procesando solicitud 17 en la página actual...
-2025-01-06 16:22:39,080 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:22:43,457 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:22:43,473 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:22:54,199 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:22:54,344 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:22:54,344 - INFO - Datos extraídos para la solicitud 17: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-87 - Bancoestado Express Quilpué (Andrés Bello #611 Al #615, Quilpué, Marga Marga)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '15/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:22:54,401 - INFO - Procesando solicitud 18 en la página actual...
-2025-01-06 16:22:54,455 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:22:58,863 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:22:58,880 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:23:10,168 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:23:10,316 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:23:10,316 - INFO - Datos extraídos para la solicitud 18: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (mesón)', 'sucursal': 'SERV-87 - Bancoestado Express Quilpué (Andrés Bello #611 Al #615, Quilpué, Marga Marga)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '15/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:23:10,374 - INFO - Procesando solicitud 19 en la página actual...
-2025-01-06 16:23:10,437 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:23:14,815 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:23:14,833 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:23:25,566 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:23:25,739 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:23:25,739 - INFO - Datos extraídos para la solicitud 19: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-884 - Bancoestado Express Reñaca (Av. Borgoño #14760, 2° Piso, Reñaca, Viña del Mar, Valparaíso)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '10/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:23:25,811 - INFO - Procesando solicitud 20 en la página actual...
-2025-01-06 16:23:25,876 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:23:30,235 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:23:30,256 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:23:41,064 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:23:41,227 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:23:41,227 - INFO - Datos extraídos para la solicitud 20: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-896 - Bancoestado Express Santa Rosa (Santa Rosa 8846, La Granja, Santiago)', 'fecha_inicio': '01/02/2025', 'fecha_termino': '04/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:23:41,286 - INFO - Procesando solicitud 21 en la página actual...
-2025-01-06 16:23:41,334 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:23:45,729 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:23:45,743 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:23:56,593 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:23:56,924 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:23:56,925 - INFO - Datos extraídos para la solicitud 21: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-896 - Bancoestado Express Santa Rosa (Santa Rosa 8846, La Granja, Santiago)', 'fecha_inicio': '20/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:23:57,029 - INFO - Procesando solicitud 22 en la página actual...
-2025-01-06 16:23:57,198 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:24:01,607 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:24:01,649 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:24:12,790 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:24:12,950 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:24:12,951 - INFO - Datos extraídos para la solicitud 22: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-924 - Bancoestado Express Gran Avenida (Gran Avenida José Miguel Carrera #5195, San Miguel, Santiago)', 'fecha_inicio': '31/12/2024', 'fecha_termino': '30/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:24:13,009 - INFO - Procesando solicitud 23 en la página actual...
-2025-01-06 16:24:13,070 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:24:17,501 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:24:17,521 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:24:28,794 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:24:28,953 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': True}
-2025-01-06 16:24:28,954 - INFO - Datos extraídos para la solicitud 23: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-993 - Bancoestado Express Temuco Portales (Portales #937, Temuco, Cautín)', 'fecha_inicio': '08/01/2025', 'fecha_termino': '10/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:24:29,036 - INFO - Procesando solicitud 24 en la página actual...
-2025-01-06 16:24:29,138 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:24:33,556 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:24:33,570 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:24:44,384 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:24:44,520 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:24:44,521 - INFO - Datos extraídos para la solicitud 24: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '371 - Puente Alto (Concha Y Toro 96, Puente Alto, Cordillera)', 'fecha_inicio': '23/12/2024', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:24:44,579 - INFO - Procesando solicitud 25 en la página actual...
-2025-01-06 16:24:44,627 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:24:49,021 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:24:49,036 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:25:00,307 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:25:00,437 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:25:00,437 - INFO - Datos extraídos para la solicitud 25: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-941 - Bancoestado Express Puente Alto Centro (José Manuel Balmaceda #354 / Av. Concha y Toro 229, Puente Alto, Cordillera)', 'fecha_inicio': '13/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:25:00,506 - INFO - Procesando solicitud 26 en la página actual...
-2025-01-06 16:25:00,634 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:25:05,003 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:25:05,019 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:25:15,839 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:25:15,984 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:25:15,985 - INFO - Datos extraídos para la solicitud 26: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-64 - Bancoestado Express La Cisterna (Gran Avenida José Miguel Carrera #8496, La Cisterna, Santiago)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '22/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:25:16,043 - INFO - Procesando solicitud 27 en la página actual...
-2025-01-06 16:25:16,120 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:25:20,507 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:25:20,519 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:25:31,746 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:25:31,888 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:25:31,888 - INFO - Datos extraídos para la solicitud 27: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-934 - Bancoestado Express Florida Enrique Olivares (Enrique Olivares #1448, Local 6 y 7, La Florida, Santiago)', 'fecha_inicio': '27/01/2025', 'fecha_termino': '14/02/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:25:31,952 - INFO - Procesando solicitud 28 en la página actual...
-2025-01-06 16:25:32,044 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:25:36,446 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:25:36,472 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:25:47,342 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:25:47,492 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:25:47,493 - INFO - Datos extraídos para la solicitud 28: {'numero_solicitud': 'N/A', 'cargo': 'Atención cliente', 'sucursal': '135 - Combarbala (San Carlos 490, Combarbalá, Limarí)', 'fecha_inicio': '17/02/2025', 'fecha_termino': '28/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:25:47,551 - INFO - Procesando solicitud 29 en la página actual...
-2025-01-06 16:25:47,673 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:25:52,061 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:25:52,079 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:26:02,868 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:26:03,013 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:26:03,013 - INFO - Datos extraídos para la solicitud 29: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-92 - Bancoestado Express San Fernando Rodríguez (Av. Manuel Rodríguez #856, San Fernando, Colchagua)', 'fecha_inicio': '27/01/2025', 'fecha_termino': '14/02/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:26:03,074 - INFO - Procesando solicitud 30 en la página actual...
-2025-01-06 16:26:03,170 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:26:07,552 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:26:07,569 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:26:18,357 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:26:18,520 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:26:18,520 - INFO - Datos extraídos para la solicitud 30: {'numero_solicitud': 'N/A', 'cargo': 'Atención cliente', 'sucursal': '237 - San Francisco De Limache (Arturo Prat 224, Limache, Marga Marga)', 'fecha_inicio': '18/12/2024', 'fecha_termino': '23/12/2024', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:26:18,576 - INFO - Procesando solicitud 31 en la página actual...
-2025-01-06 16:26:18,643 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:26:23,048 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:26:23,069 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:26:33,848 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:26:33,991 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:26:33,992 - INFO - Datos extraídos para la solicitud 31: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '375 - Melipilla (Plaza De Armas 583, Melipilla, Melipilla)', 'fecha_inicio': '27/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:26:34,050 - INFO - Procesando solicitud 32 en la página actual...
-2025-01-06 16:26:34,114 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:26:38,472 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:26:38,488 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:26:49,325 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:26:49,473 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:26:49,473 - INFO - Datos extraídos para la solicitud 32: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '516 - El Carmen (General Baquedano 411, El Carmen, Diguillín)', 'fecha_inicio': '18/12/2024', 'fecha_termino': '10/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:26:49,532 - INFO - Procesando solicitud 33 en la página actual...
-2025-01-06 16:26:49,633 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:26:54,016 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:26:54,033 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:27:04,776 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:27:04,926 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:27:04,926 - INFO - Datos extraídos para la solicitud 33: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '013 - Iquique (San Martin 301, Iquique, Iquique)', 'fecha_inicio': '17/12/2024', 'fecha_termino': '30/12/2024', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:27:04,985 - INFO - Procesando solicitud 34 en la página actual...
-2025-01-06 16:27:05,093 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:27:09,482 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:27:09,497 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:27:20,254 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:27:20,403 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:27:20,404 - INFO - Datos extraídos para la solicitud 34: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-941 - Bancoestado Express Puente Alto Centro (José Manuel Balmaceda #354 / Av. Concha y Toro 229, Puente Alto, Cordillera)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '24/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:27:20,461 - INFO - Procesando solicitud 35 en la página actual...
-2025-01-06 16:27:20,512 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:27:24,891 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:27:24,907 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:27:35,671 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:27:35,828 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:27:35,828 - INFO - Datos extraídos para la solicitud 35: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-93 - Bancoestado Express Peñaflor (Av. Vicuña Mackenna #1918, Peñaflor, Talagante)', 'fecha_inicio': '31/01/2025', 'fecha_termino': '04/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:27:35,905 - INFO - Procesando solicitud 36 en la página actual...
-2025-01-06 16:27:35,986 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:27:40,344 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:27:40,360 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:27:51,165 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:27:51,527 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:27:51,527 - INFO - Datos extraídos para la solicitud 36: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-162 - Bancoestado Express Independencia (Av. Independencia #1032, Independencia, Santiago)', 'fecha_inicio': '25/01/2025', 'fecha_termino': '28/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:27:51,733 - INFO - Procesando solicitud 37 en la página actual...
-2025-01-06 16:27:51,922 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:27:56,299 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:27:56,321 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:28:07,155 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:28:07,296 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:28:07,296 - INFO - Datos extraídos para la solicitud 37: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-162 - Bancoestado Express Independencia (Av. Independencia #1032, Independencia, Santiago)', 'fecha_inicio': '01/02/2025', 'fecha_termino': '04/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:28:07,356 - INFO - Procesando solicitud 38 en la página actual...
-2025-01-06 16:28:07,406 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:28:11,814 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:28:11,831 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:28:22,561 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:28:22,733 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:28:22,733 - INFO - Datos extraídos para la solicitud 38: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-67 - Bancoestado Express Los Ángeles Colón (Colón #733, Los Ángeles, Biobío)', 'fecha_inicio': '12/12/2024', 'fecha_termino': '16/12/2024', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:28:22,793 - INFO - Procesando solicitud 39 en la página actual...
-2025-01-06 16:28:22,891 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:28:27,295 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:28:27,310 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:28:38,031 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:28:38,178 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:28:38,179 - INFO - Datos extraídos para la solicitud 39: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-897 - Bancoestado Express Salamanca (Marquez de Montepio 298, Salamanca, Choapa)', 'fecha_inicio': '27/01/2025', 'fecha_termino': '07/02/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:28:38,237 - INFO - Procesando solicitud 40 en la página actual...
-2025-01-06 16:28:38,303 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:28:42,682 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:28:42,697 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:28:53,432 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:28:53,602 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:28:53,602 - INFO - Datos extraídos para la solicitud 40: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-925 - Bancoestado Express La Pintana (Av. Santa Rosa #12786, La Pintana, Santiago)', 'fecha_inicio': '17/12/2024', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:28:53,665 - INFO - Procesando solicitud 41 en la página actual...
-2025-01-06 16:28:53,748 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:28:58,144 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:28:58,159 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:29:08,971 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:29:09,148 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:29:09,148 - INFO - Datos extraídos para la solicitud 41: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-72 - Bancoestado Express Coquimbo (Adúnate 1598 - Coquimbo, Coquimbo, Elqui)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '15/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:29:09,213 - INFO - Procesando solicitud 42 en la página actual...
-2025-01-06 16:29:09,317 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:29:13,703 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:29:13,726 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:29:24,596 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:29:24,799 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:29:24,799 - INFO - Datos extraídos para la solicitud 42: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-102 - Bancoestado Express La Ligua (Esmeralda #579, La Ligua, Petorca)', 'fecha_inicio': '16/01/2025', 'fecha_termino': '24/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:29:24,919 - INFO - Procesando solicitud 43 en la página actual...
-2025-01-06 16:29:25,150 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:29:29,599 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:29:29,617 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:29:40,592 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:29:40,749 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:29:40,749 - INFO - Datos extraídos para la solicitud 43: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-102 - Bancoestado Express La Ligua (Esmeralda #579, La Ligua, Petorca)', 'fecha_inicio': '27/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:29:40,813 - INFO - Procesando solicitud 44 en la página actual...
-2025-01-06 16:29:40,861 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:29:45,257 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:29:45,275 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:29:56,062 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:29:56,216 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:29:56,216 - INFO - Datos extraídos para la solicitud 44: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-102 - Bancoestado Express La Ligua (Esmeralda #579, La Ligua, Petorca)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:29:56,305 - INFO - Procesando solicitud 45 en la página actual...
-2025-01-06 16:29:56,387 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:30:00,737 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:30:00,753 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:30:11,514 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:30:11,662 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': True}
-2025-01-06 16:30:11,662 - INFO - Datos extraídos para la solicitud 45: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '387 - Las Cabras (Carlos Fresno 227, Las Cabras, Cachapoal)', 'fecha_inicio': '10/12/2024', 'fecha_termino': '20/12/2024', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:30:11,720 - INFO - Procesando solicitud 46 en la página actual...
-2025-01-06 16:30:11,767 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:30:16,174 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:30:16,188 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:30:26,982 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:30:27,124 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:30:27,124 - INFO - Datos extraídos para la solicitud 46: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-983 - Bancoestado Express Valparaíso Almendral (Uruguay #255, Valparaíso, Valparaíso)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '15/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:30:27,182 - INFO - Procesando solicitud 47 en la página actual...
-2025-01-06 16:30:27,230 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:30:31,602 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:30:31,617 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:30:42,394 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:30:42,542 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:30:42,542 - INFO - Datos extraídos para la solicitud 47: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-983 - Bancoestado Express Valparaíso Almendral (Uruguay #255, Valparaíso, Valparaíso)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '24/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:30:42,600 - INFO - Procesando solicitud 48 en la página actual...
-2025-01-06 16:30:42,639 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:30:47,026 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:30:47,041 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:30:57,905 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:30:58,052 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:30:58,052 - INFO - Datos extraídos para la solicitud 48: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-107 - Bancoestado Express Buin (Condell #281, Buin, Maipo)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '17/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:30:58,139 - INFO - Procesando solicitud 49 en la página actual...
-2025-01-06 16:30:58,228 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:31:02,611 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:31:02,627 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:31:13,936 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:31:14,117 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:31:14,117 - INFO - Datos extraídos para la solicitud 49: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-90 - Bancoestado Express Angol (Av. O´higgins #1257, Angol, Malleco)', 'fecha_inicio': '10/12/2024', 'fecha_termino': '23/12/2024', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:31:14,176 - INFO - Procesando solicitud 50 en la página actual...
-2025-01-06 16:31:14,296 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:31:18,699 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:31:18,717 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:31:29,584 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:31:29,731 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:31:29,731 - INFO - Datos extraídos para la solicitud 50: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-942 - Bancoestado Express La Serena Prat (Arturo Prat #563, La Serena, Elqui)', 'fecha_inicio': '17/12/2024', 'fecha_termino': '23/12/2024', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:31:29,789 - INFO - Procesando solicitud 51 en la página actual...
-2025-01-06 16:31:29,827 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:31:34,231 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:31:34,249 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:31:45,072 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:31:45,230 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:31:45,230 - INFO - Datos extraídos para la solicitud 51: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '620 - Lumaco (Arturo Prat 522, Lumaco, Malleco)', 'fecha_inicio': '08/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:31:45,287 - INFO - Procesando solicitud 52 en la página actual...
-2025-01-06 16:31:45,346 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:31:49,737 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:31:49,753 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:32:00,748 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:32:00,895 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:32:00,896 - INFO - Datos extraídos para la solicitud 52: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-112 - Bancoestado Express Puente Alto Espacio Urbano (Av. Concha y Toro 1149, Locales 60 A y B, Puente Alto, Cordillera)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '03/02/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:32:00,968 - INFO - Procesando solicitud 53 en la página actual...
-2025-01-06 16:32:01,035 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:32:05,403 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:32:05,419 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:32:16,333 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:32:16,584 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:32:16,584 - INFO - Datos extraídos para la solicitud 53: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-924 - Bancoestado Express Gran Avenida (Gran Avenida José Miguel Carrera #5195, San Miguel, Santiago)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '24/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:32:16,648 - INFO - Procesando solicitud 54 en la página actual...
-2025-01-06 16:32:16,701 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:32:21,176 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:32:21,190 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:32:32,139 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:32:32,322 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:32:32,323 - INFO - Datos extraídos para la solicitud 54: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '381 - Rancagua (Independencia 666, Rancagua, Cachapoal)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '13/02/2025', 'causal': 'Licencia médica maternal', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:32:32,402 - INFO - Procesando solicitud 55 en la página actual...
-2025-01-06 16:32:32,451 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:32:36,844 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:32:36,866 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:32:47,881 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:32:48,018 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:32:48,018 - INFO - Datos extraídos para la solicitud 55: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '631 - Temuco Avenida Alemania (Av. Alemania 01610, Temuco, Cautín)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '10/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:32:48,078 - INFO - Procesando solicitud 56 en la página actual...
-2025-01-06 16:32:48,153 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:32:52,569 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:32:52,584 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:33:03,364 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:33:03,503 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:33:03,503 - INFO - Datos extraídos para la solicitud 56: {'numero_solicitud': 'N/A', 'cargo': 'Atención cliente', 'sucursal': '361 - Santiago Jose Maria Caro (Av. Central 6298, Pedro Aguirre Cerda, Santiago)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:33:03,560 - INFO - Procesando solicitud 57 en la página actual...
-2025-01-06 16:33:03,603 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:33:07,990 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:33:08,007 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:33:18,945 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:33:19,085 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:33:19,085 - INFO - Datos extraídos para la solicitud 57: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-993 - Bancoestado Express Temuco Portales (Portales #937, Temuco, Cautín)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '03/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:33:19,142 - INFO - Procesando solicitud 58 en la página actual...
-2025-01-06 16:33:19,206 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:33:23,622 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:33:23,637 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:33:34,455 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:33:34,767 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:33:34,767 - INFO - Datos extraídos para la solicitud 58: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '239 - Valparaiso Prat (Arturo Prat 656, Valparaíso, Valparaíso)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '13/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:33:34,889 - INFO - Procesando solicitud 59 en la página actual...
-2025-01-06 16:33:35,062 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:33:39,467 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:33:39,481 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:33:50,219 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:33:50,366 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:33:50,367 - INFO - Datos extraídos para la solicitud 59: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-103 - Bancoestado Express Rengo (Carlos Condell #57, Rengo, Cachapoal)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '03/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:33:50,424 - INFO - Procesando solicitud 60 en la página actual...
-2025-01-06 16:33:50,476 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:33:54,933 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:33:54,950 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:34:05,669 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:34:05,817 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:34:05,817 - INFO - Datos extraídos para la solicitud 60: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '519 - Coelemu (Pedro Leon Gallo 430, Coelemu, Itata)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '07/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:34:05,874 - INFO - Procesando solicitud 61 en la página actual...
-2025-01-06 16:34:05,933 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:34:10,333 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:34:10,349 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:34:21,167 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:34:21,307 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:34:21,307 - INFO - Datos extraídos para la solicitud 61: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-80 - Bancoestado Express San Antonio Puerto (Ramón Barros Luco #1613 , Local 1, San Antonio, San Antonio)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:34:21,371 - INFO - Procesando solicitud 62 en la página actual...
-2025-01-06 16:34:21,417 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:34:25,802 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:34:25,818 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:34:36,582 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:34:36,732 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': True}
-2025-01-06 16:34:36,732 - INFO - Datos extraídos para la solicitud 62: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '010 - Arica (Paseo 21 De Mayo 228, Arica, Arica)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '15/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:34:37,016 - INFO - Procesando solicitud 63 en la página actual...
-2025-01-06 16:34:37,151 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:34:41,555 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:34:41,570 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:34:52,929 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:34:53,073 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:34:53,073 - INFO - Datos extraídos para la solicitud 63: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-903 - Bancoestado Express Puente Alto Plaza (Manuel Rodríguez 63, Puente Alto, Cordillera)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:34:53,133 - INFO - Procesando solicitud 64 en la página actual...
-2025-01-06 16:34:53,176 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:34:57,589 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:34:57,605 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:35:08,391 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:35:08,528 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:35:08,528 - INFO - Datos extraídos para la solicitud 64: {'numero_solicitud': 'N/A', 'cargo': 'Atención cliente', 'sucursal': '381 - Rancagua (Independencia 666, Rancagua, Cachapoal)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '15/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:35:08,588 - INFO - Procesando solicitud 65 en la página actual...
-2025-01-06 16:35:08,635 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:35:13,091 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:35:13,125 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:35:23,868 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:35:24,005 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:35:24,005 - INFO - Datos extraídos para la solicitud 65: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '259 - Llolleo (Av. Divina Providencia 325, San Antonio, San Antonio)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '10/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:35:24,063 - INFO - Procesando solicitud 66 en la página actual...
-2025-01-06 16:35:24,112 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:35:28,496 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:35:28,511 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:35:39,319 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:35:39,491 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:35:39,491 - INFO - Datos extraídos para la solicitud 66: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '344 - Santiago Macul (Av. Macul 3389, Macul, Santiago)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:35:39,547 - INFO - Procesando solicitud 67 en la página actual...
-2025-01-06 16:35:39,589 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:35:43,959 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:35:43,977 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:35:54,696 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:35:54,842 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:35:54,843 - INFO - Datos extraídos para la solicitud 67: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-931 - Bancoestado Express Rancagua Brasil (Av. Brasil #1082, Rancagua, Cachapoal)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '07/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:35:54,903 - INFO - Procesando solicitud 68 en la página actual...
-2025-01-06 16:35:54,950 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:35:59,328 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:35:59,345 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:36:10,145 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:36:10,294 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:36:10,294 - INFO - Datos extraídos para la solicitud 68: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '258 - Cartagena (Av. Cartagena 324, Cartagena, San Antonio)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '21/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:36:10,354 - INFO - Procesando solicitud 69 en la página actual...
-2025-01-06 16:36:10,406 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:36:15,280 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:36:15,335 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:36:26,217 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:36:26,359 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:36:26,359 - INFO - Datos extraídos para la solicitud 69: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-66 - Bancoestado Express Maipú Ordóñez (General Ordóñez #130, Maipú, Santiago)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '13/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:36:26,419 - INFO - Procesando solicitud 70 en la página actual...
-2025-01-06 16:36:26,496 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:36:30,864 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:36:30,879 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:36:42,111 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:36:42,270 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': True}
-2025-01-06 16:36:42,270 - INFO - Datos extraídos para la solicitud 70: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '134 - Monte Patria (Balmaceda 2, Monte Patria, Limarí)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '03/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:36:42,328 - INFO - Procesando solicitud 71 en la página actual...
-2025-01-06 16:36:42,404 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:36:46,783 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:36:46,798 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:36:58,120 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:36:58,277 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:36:58,277 - INFO - Datos extraídos para la solicitud 71: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '315 - Santiago Ahumada (Moneda 1000, Santiago Centro, Santiago)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '17/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:36:58,344 - INFO - Procesando solicitud 72 en la página actual...
-2025-01-06 16:36:58,448 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:37:02,826 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:37:02,841 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:37:13,570 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:37:13,716 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:37:13,716 - INFO - Datos extraídos para la solicitud 72: {'numero_solicitud': 'N/A', 'cargo': 'Atención cliente', 'sucursal': '361 - Santiago Jose Maria Caro (Av. Central 6298, Pedro Aguirre Cerda, Santiago)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '03/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:37:13,778 - INFO - Procesando solicitud 73 en la página actual...
-2025-01-06 16:37:13,849 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:37:18,221 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:37:18,234 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:37:28,912 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:37:29,060 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:37:29,060 - INFO - Datos extraídos para la solicitud 73: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-66 - Bancoestado Express Maipú Ordóñez (General Ordóñez #130, Maipú, Santiago)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:37:29,127 - INFO - Procesando solicitud 74 en la página actual...
-2025-01-06 16:37:29,167 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:37:33,540 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:37:33,556 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:37:44,778 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:37:44,924 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:37:44,924 - INFO - Datos extraídos para la solicitud 74: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-942 - Bancoestado Express La Serena Prat (Arturo Prat #563, La Serena, Elqui)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '06/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:37:44,982 - INFO - Procesando solicitud 75 en la página actual...
-2025-01-06 16:37:45,027 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:37:49,426 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:37:49,442 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:38:00,215 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:38:00,358 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:38:00,359 - INFO - Datos extraídos para la solicitud 75: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '519 - Coelemu (Pedro Leon Gallo 430, Coelemu, Itata)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '03/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:38:00,441 - INFO - Procesando solicitud 76 en la página actual...
-2025-01-06 16:38:00,546 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:38:04,938 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:38:04,950 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:38:15,721 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:38:15,860 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:38:15,860 - INFO - Datos extraídos para la solicitud 76: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '256 - Algarrobo (Av. Carlos Alessandri 2118, Algarrobo, San Antonio)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:38:15,918 - INFO - Procesando solicitud 77 en la página actual...
-2025-01-06 16:38:15,985 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:38:20,394 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:38:20,411 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:38:31,214 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:38:31,361 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:38:31,361 - INFO - Datos extraídos para la solicitud 77: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-931 - Bancoestado Express Rancagua Brasil (Av. Brasil #1082, Rancagua, Cachapoal)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:38:31,419 - INFO - Procesando solicitud 78 en la página actual...
-2025-01-06 16:38:31,465 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:38:35,874 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:38:35,887 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:38:46,716 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:38:46,868 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:38:46,869 - INFO - Datos extraídos para la solicitud 78: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '383 - Doñihue (Subteniente Valenzuela 202, Doñihue, Cachapoal)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:38:46,928 - INFO - Procesando solicitud 79 en la página actual...
-2025-01-06 16:38:46,969 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:38:51,409 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:38:51,424 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:39:02,213 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:39:02,379 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:39:02,379 - INFO - Datos extraídos para la solicitud 79: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '375 - Melipilla (Plaza De Armas 583, Melipilla, Melipilla)', 'fecha_inicio': '08/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:39:02,435 - INFO - Procesando solicitud 80 en la página actual...
-2025-01-06 16:39:02,483 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:39:06,880 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:39:06,910 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:39:17,741 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:39:17,898 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:39:17,899 - INFO - Datos extraídos para la solicitud 80: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '563 - Cañete (Condell 209, Cañete, Arauco)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '22/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:39:17,957 - INFO - Procesando solicitud 81 en la página actual...
-2025-01-06 16:39:18,004 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:39:22,384 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:39:22,400 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:39:33,626 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:39:33,768 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': True}
-2025-01-06 16:39:33,768 - INFO - Datos extraídos para la solicitud 81: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': "533 - Concepcion (O'Higgins 486, Concepción, Concepción)", 'fecha_inicio': '30/12/2024', 'fecha_termino': '23/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:39:33,828 - INFO - Procesando solicitud 82 en la página actual...
-2025-01-06 16:39:33,873 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:39:38,282 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:39:38,308 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:39:49,503 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:39:49,646 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:39:49,646 - INFO - Datos extraídos para la solicitud 82: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '645 - Villarrica (Pedro De Valdivia 957, Villarrica, Cautín)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '22/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:39:49,705 - INFO - Procesando solicitud 83 en la página actual...
-2025-01-06 16:39:49,758 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:39:54,146 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:39:54,162 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:40:04,929 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:40:05,062 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:40:05,062 - INFO - Datos extraídos para la solicitud 83: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-976 - Bancoestado Express Antofagasta Prat (Arturo Prat 427, Antofagasta, Antofagasta)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '22/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:40:05,120 - INFO - Procesando solicitud 84 en la página actual...
-2025-01-06 16:40:05,171 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:40:09,552 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:40:09,567 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:40:20,805 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:40:20,946 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:40:20,946 - INFO - Datos extraídos para la solicitud 84: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-885 - Bancoestado Express La Florida Vicente Valdés (Av. Vicuña Mackenna #7802, Local 7 / Av. Vicente Valdés 85, Locales 7 y 8, La Florida, Santiago)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '13/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:40:21,004 - INFO - Procesando solicitud 85 en la página actual...
-2025-01-06 16:40:21,079 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:40:25,486 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:40:25,499 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:40:36,235 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:40:36,385 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:40:36,385 - INFO - Datos extraídos para la solicitud 85: {'numero_solicitud': 'N/A', 'cargo': 'Atención cliente', 'sucursal': '115 - Chañaral (Buin 801, Chañaral, Chañaral)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '27/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:40:36,446 - INFO - Procesando solicitud 86 en la página actual...
-2025-01-06 16:40:36,525 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:40:40,926 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:40:40,941 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:40:51,678 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:40:51,826 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:40:51,826 - INFO - Datos extraídos para la solicitud 86: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '833 - Castro (San Martin 397, Castro, Chiloé)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '10/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:40:51,903 - INFO - Procesando solicitud 87 en la página actual...
-2025-01-06 16:40:51,996 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:40:56,398 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:40:56,418 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:41:07,652 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:41:07,829 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': True}
-2025-01-06 16:41:07,829 - INFO - Datos extraídos para la solicitud 87: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '127 - Coquimbo (Melgarejo 1002, Coquimbo, Elqui)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '17/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:41:07,885 - INFO - Procesando solicitud 88 en la página actual...
-2025-01-06 16:41:07,931 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:41:12,313 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:41:12,329 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:41:23,039 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:41:23,215 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:41:23,216 - INFO - Datos extraídos para la solicitud 88: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '527 - Talcahuano (Colon 602, Talcahuano, Concepción)', 'fecha_inicio': '30/12/2024', 'fecha_termino': '23/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:41:23,291 - INFO - Procesando solicitud 89 en la página actual...
-2025-01-06 16:41:23,347 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:41:27,722 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:41:27,742 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:41:38,974 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:41:39,128 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
-2025-01-06 16:41:39,128 - INFO - Datos extraídos para la solicitud 89: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-993 - Bancoestado Express Temuco Portales (Portales #937, Temuco, Cautín)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '16/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:41:39,186 - INFO - Procesando solicitud 90 en la página actual...
-2025-01-06 16:41:39,233 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:41:43,616 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:41:43,631 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:41:54,412 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:41:54,646 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:41:54,646 - INFO - Datos extraídos para la solicitud 90: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '373 - Talagante (Jose Leyan 853, Talagante, Talagante)', 'fecha_inicio': '06/01/2025', 'fecha_termino': '27/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:41:54,722 - INFO - Procesando solicitud 91 en la página actual...
-2025-01-06 16:41:54,816 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:41:59,215 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:41:59,233 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:42:10,527 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:42:10,672 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:42:10,672 - INFO - Datos extraídos para la solicitud 91: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-77 - Bancoestado Express Ovalle (Independencia #267, Ovalle, Limarí)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:42:10,771 - INFO - Procesando solicitud 92 en la página actual...
-2025-01-06 16:42:10,817 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:42:15,187 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:42:15,203 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:42:26,413 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:42:26,551 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:42:26,551 - INFO - Datos extraídos para la solicitud 92: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': "327 - Santiago Estacion (Av. Libertador Bernardo O'Higgins 2690, Santiago Centro, Santiago)", 'fecha_inicio': '02/01/2025', 'fecha_termino': '10/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:42:26,609 - INFO - Procesando solicitud 93 en la página actual...
-2025-01-06 16:42:26,663 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:42:31,067 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:42:31,083 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:42:41,811 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:42:41,964 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:42:41,964 - INFO - Datos extraídos para la solicitud 93: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-77 - Bancoestado Express Ovalle (Independencia #267, Ovalle, Limarí)', 'fecha_inicio': '30/12/2024', 'fecha_termino': '15/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:42:42,022 - INFO - Procesando solicitud 94 en la página actual...
-2025-01-06 16:42:42,057 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:42:46,467 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:42:46,485 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:42:57,213 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:42:57,469 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:42:57,470 - INFO - Datos extraídos para la solicitud 94: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '543 - Yungay (Arturo Prat 492, Yungay, Diguillín)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:42:57,539 - INFO - Procesando solicitud 95 en la página actual...
-2025-01-06 16:42:57,619 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:43:01,991 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:43:02,008 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:43:13,270 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:43:13,403 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:43:13,403 - INFO - Datos extraídos para la solicitud 95: {'numero_solicitud': 'N/A', 'cargo': 'Atención cliente', 'sucursal': '282 - Santiago Bandera Centro (Bandera 66, Santiago Centro, Santiago)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '06/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:43:13,464 - INFO - Procesando solicitud 96 en la página actual...
-2025-01-06 16:43:13,505 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:43:17,996 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:43:18,009 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:43:29,224 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:43:29,377 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': True}
-2025-01-06 16:43:29,378 - INFO - Datos extraídos para la solicitud 96: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '367 - San Bernardo (Arturo Prat 609, San Bernardo, Maipo)', 'fecha_inicio': '30/12/2024', 'fecha_termino': '02/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:43:29,437 - INFO - Procesando solicitud 97 en la página actual...
-2025-01-06 16:43:29,485 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:43:33,901 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:43:33,918 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:43:44,765 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:43:44,908 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:43:44,908 - INFO - Datos extraídos para la solicitud 97: {'numero_solicitud': 'N/A', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-86 - Bancoestado Express Quillota (O´higgins #34, Quillota, Quillota)', 'fecha_inicio': '03/01/2025', 'fecha_termino': '03/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:43:44,969 - INFO - Procesando solicitud 98 en la página actual...
-2025-01-06 16:43:45,057 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:43:49,432 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:43:49,447 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:44:00,317 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:44:00,447 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:44:00,448 - INFO - Datos extraídos para la solicitud 98: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '297 - Santiago San Pablo (Av. San Pablo 8121, Lo Prado, Santiago)', 'fecha_inicio': '27/12/2024', 'fecha_termino': '30/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:44:00,504 - INFO - Procesando solicitud 99 en la página actual...
-2025-01-06 16:44:00,551 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:44:04,945 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:44:04,970 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:44:15,767 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:44:15,913 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:44:15,914 - INFO - Datos extraídos para la solicitud 99: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '375 - Melipilla (Plaza De Armas 583, Melipilla, Melipilla)', 'fecha_inicio': '02/01/2025', 'fecha_termino': '07/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:44:15,974 - INFO - Procesando solicitud 100 en la página actual...
-2025-01-06 16:44:16,073 - INFO - Clic en el número de la solicitud realizado.
-2025-01-06 16:44:20,500 - INFO - Clic realizado usando ActionChains.
-2025-01-06 16:44:20,517 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
-2025-01-06 16:44:31,343 - WARNING - No se encontró el elemento para XPath: //span[contains(@class, 'badge badge-info')]
-2025-01-06 16:44:31,491 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': True, 'aceptacion_proveedor': True, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
-2025-01-06 16:44:31,491 - INFO - Datos extraídos para la solicitud 100: {'numero_solicitud': 'N/A', 'cargo': 'Cajero', 'sucursal': '373 - Talagante (Jose Leyan 853, Talagante, Talagante)', 'fecha_inicio': '30/12/2024', 'fecha_termino': '03/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/N/A'}
-2025-01-06 16:44:31,597 - INFO - Pasando a la siguiente página...
-2025-01-06 16:44:32,712 - ERROR - Error durante la extracción de todas las solicitudes: Message: element click intercepted: Element <li class="paginate_button page-item next" id="table-dt_review_next">...</li> is not clickable at point (1841, 835). Other element would receive the click: <div id="to-top-btn" class="btn btn-primary">...</div>
-  (Session info: chrome=130.0.6723.116)
-Stacktrace:
-#0 0x55c9a44a46da <unknown>
-#1 0x55c9a3fb8f80 <unknown>
-#2 0x55c9a400c6e6 <unknown>
-#3 0x55c9a400a66d <unknown>
-#4 0x55c9a4008117 <unknown>
-#5 0x55c9a4007531 <unknown>
-#6 0x55c9a3ffab28 <unknown>
-#7 0x55c9a4029bb2 <unknown>
-#8 0x55c9a3ffa508 <unknown>
-#9 0x55c9a4029d7e <unknown>
-#10 0x55c9a404869d <unknown>
-#11 0x55c9a4029953 <unknown>
-#12 0x55c9a3ff872e <unknown>
-#13 0x55c9a3ff979e <unknown>
-#14 0x55c9a446ff1b <unknown>
-#15 0x55c9a4473eb8 <unknown>
-#16 0x55c9a445d42c <unknown>
-#17 0x55c9a4474a37 <unknown>
-#18 0x55c9a4441fef <unknown>
-#19 0x55c9a4492ad8 <unknown>
-#20 0x55c9a4492ca0 <unknown>
-#21 0x55c9a44a3556 <unknown>
-#22 0x7f6838715a94 <unknown>
-#23 0x7f68387a2c3c <unknown>
-
-2025-01-06 16:44:32,882 - INFO - Captura de pantalla guardada: error_extraer_todas_solicitudes.png
-2025-01-06 16:44:33,041 - INFO - Driver cerrado.
+2025-01-07 17:36:52,041 - INFO - Navegando al portal de sistema de requerimientos.
+2025-01-07 17:36:53,079 - INFO - Intentando hacer clic en 'Soy Proveedor'...
+2025-01-07 17:36:53,545 - INFO - Clic en 'Soy Proveedor' realizado.
+2025-01-07 17:36:53,545 - INFO - Ingresando credenciales...
+2025-01-07 17:36:54,639 - INFO - Intentando hacer clic en 'Iniciar Sesión'...
+2025-01-07 17:36:58,482 - INFO - Inicio de sesión realizado.
+2025-01-07 17:37:03,483 - INFO - Intentando hacer clic en 'Soporte operativo'...
+2025-01-07 17:37:03,600 - INFO - Clic en 'Soporte operativo' realizado.
+2025-01-07 17:37:03,600 - INFO - Intentando hacer clic en 'Personal Externo'...
+2025-01-07 17:37:03,736 - INFO - Clic en 'Personal Externo' realizado.
+2025-01-07 17:37:03,739 - INFO - Intentando hacer clic en 'Estado de solicitudes Personal Externo'...
+2025-01-07 17:37:05,163 - INFO - Clic en 'Estado de solicitudes Personal Externo' realizado.
+2025-01-07 17:37:07,163 - INFO - Intentando extraer datos de todas las solicitudes disponibles con paginación...
+2025-01-07 17:37:07,189 - INFO - Se encontraron 100 solicitudes en la tabla.
+2025-01-07 17:37:07,189 - INFO - Procesando solicitud 1 de 10...
+2025-01-07 17:37:07,215 - INFO - Número de solicitud leído de la tabla: 40794
+2025-01-07 17:37:07,266 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:37:11,632 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:37:11,649 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:37:12,540 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-07 17:37:12,541 - INFO - Datos extraídos para la solicitud 1: {'numero_solicitud': '40794', 'cargo': 'Cajero', 'sucursal': '543 - Yungay (Arturo Prat 492, Yungay, Diguillín)', 'fecha_inicio': '09/01/2025', 'fecha_termino': '22/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40794'}
+2025-01-07 17:37:12,643 - INFO - Procesando solicitud 2 de 10...
+2025-01-07 17:37:12,736 - INFO - Número de solicitud leído de la tabla: 40792
+2025-01-07 17:37:12,845 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:37:17,204 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:37:17,216 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:37:18,036 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-07 17:37:18,036 - INFO - Datos extraídos para la solicitud 2: {'numero_solicitud': '40792', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-896 - Bancoestado Express Santa Rosa (Santa Rosa 8846, La Granja, Santiago)', 'fecha_inicio': '09/01/2025', 'fecha_termino': '04/02/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40792'}
+2025-01-07 17:37:18,103 - INFO - Procesando solicitud 3 de 10...
+2025-01-07 17:37:18,130 - INFO - Número de solicitud leído de la tabla: 40764
+2025-01-07 17:37:18,184 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:37:22,558 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:37:22,574 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:37:23,375 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-07 17:37:23,375 - INFO - Datos extraídos para la solicitud 3: {'numero_solicitud': '40764', 'cargo': 'Cajero', 'sucursal': '858 - Llanquihue (Antonio Matta 421, Llanquihue, Llanquihue)', 'fecha_inicio': '13/01/2025', 'fecha_termino': '17/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40764'}
+2025-01-07 17:37:23,434 - INFO - Procesando solicitud 4 de 10...
+2025-01-07 17:37:23,466 - INFO - Número de solicitud leído de la tabla: 40759
+2025-01-07 17:37:23,523 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:37:27,900 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:37:27,915 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:37:28,749 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-07 17:37:28,749 - INFO - Datos extraídos para la solicitud 4: {'numero_solicitud': '40759', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-941 - Bancoestado Express Puente Alto Centro (José Manuel Balmaceda #354 / Av. Concha y Toro 229, Puente Alto, Cordillera)', 'fecha_inicio': '13/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Vacaciones', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40759'}
+2025-01-07 17:37:28,819 - INFO - Procesando solicitud 5 de 10...
+2025-01-07 17:37:28,855 - INFO - Número de solicitud leído de la tabla: 40726
+2025-01-07 17:37:28,967 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:37:33,341 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:37:33,357 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:37:34,230 - INFO - Secciones detectadas: {'boton_aceptar': False, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': True, 'reasignacion_solicitudes': False}
+2025-01-07 17:37:34,230 - INFO - Datos extraídos para la solicitud 5: {'numero_solicitud': '40726', 'cargo': 'Cajero', 'sucursal': '637 - Cunco (Santa Maria 493, Cunco, Cautín)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '20/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40726'}
+2025-01-07 17:37:34,291 - INFO - Procesando solicitud 6 de 10...
+2025-01-07 17:37:34,314 - INFO - Número de solicitud leído de la tabla: 40720
+2025-01-07 17:37:34,360 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:37:38,743 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:37:38,759 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:37:39,587 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-07 17:37:39,587 - INFO - Datos extraídos para la solicitud 6: {'numero_solicitud': '40720', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-891 - Bancoestado Express Nueva Matucana (Av. Matucana #863, Santiago Centro, Santiago)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '14/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40720'}
+2025-01-07 17:37:39,646 - INFO - Procesando solicitud 7 de 10...
+2025-01-07 17:37:39,675 - INFO - Número de solicitud leído de la tabla: 40694
+2025-01-07 17:37:39,716 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:37:44,095 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:37:44,110 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:37:44,933 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-07 17:37:44,934 - INFO - Datos extraídos para la solicitud 7: {'numero_solicitud': '40694', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-63 - Bancoestado Express Viña del Mar Arlegui (Arlegui #847, Viña del Mar, Valparaíso)', 'fecha_inicio': '07/01/2025', 'fecha_termino': '21/01/2025', 'causal': 'Licencia médica', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40694'}
+2025-01-07 17:37:44,992 - INFO - Procesando solicitud 8 de 10...
+2025-01-07 17:37:45,013 - INFO - Número de solicitud leído de la tabla: 40689
+2025-01-07 17:37:45,066 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:37:49,442 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:37:49,455 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:37:50,270 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-07 17:37:50,270 - INFO - Datos extraídos para la solicitud 8: {'numero_solicitud': '40689', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-924 - Bancoestado Express Gran Avenida (Gran Avenida José Miguel Carrera #5195, San Miguel, Santiago)', 'fecha_inicio': '08/01/2025', 'fecha_termino': '10/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40689'}
+2025-01-07 17:37:50,327 - INFO - Procesando solicitud 9 de 10...
+2025-01-07 17:37:50,347 - INFO - Número de solicitud leído de la tabla: 40688
+2025-01-07 17:37:50,398 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:37:54,831 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:37:54,848 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:37:55,654 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-07 17:37:55,655 - INFO - Datos extraídos para la solicitud 9: {'numero_solicitud': '40688', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-924 - Bancoestado Express Gran Avenida (Gran Avenida José Miguel Carrera #5195, San Miguel, Santiago)', 'fecha_inicio': '25/01/2025', 'fecha_termino': '31/03/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40688'}
+2025-01-07 17:37:55,715 - INFO - Procesando solicitud 10 de 10...
+2025-01-07 17:37:55,756 - INFO - Número de solicitud leído de la tabla: 40682
+2025-01-07 17:37:55,830 - INFO - Clic en el número de la solicitud realizado.
+2025-01-07 17:38:00,228 - INFO - Clic realizado usando ActionChains.
+2025-01-07 17:38:00,241 - INFO - Botón 'Datos de la solicitud' expandido correctamente.
+2025-01-07 17:38:01,144 - INFO - Secciones detectadas: {'boton_aceptar': True, 'datos_solicitud': True, 'aceptacion_evaluador_rrhh': True, 'proveedor_seleccionado': False, 'aceptacion_proveedor': False, 'cierre_automatico': False, 'rechazos_proveedores': False, 'reasignacion_solicitudes': False}
+2025-01-07 17:38:01,144 - INFO - Datos extraídos para la solicitud 10: {'numero_solicitud': '40682', 'cargo': 'Asistente de servicios (caja)', 'sucursal': 'SERV-931 - Bancoestado Express Rancagua Brasil (Av. Brasil #1082, Rancagua, Cachapoal)', 'fecha_inicio': '08/01/2025', 'fecha_termino': '31/01/2025', 'causal': 'Aumento ocasional', 'link': 'https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/40682'}
+2025-01-07 17:38:01,200 - INFO - Se alcanzó el límite de 10 solicitudes. Deteniendo extracción.
+2025-01-07 17:38:01,201 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:01,204 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:04,149 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:04,149 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:04,155 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:04,961 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:04,961 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:04,963 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:05,629 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:05,629 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:05,631 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:06,293 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:06,293 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:06,295 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:06,851 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:06,851 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:06,855 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:07,476 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:07,477 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:07,482 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:08,040 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:08,040 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:08,047 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:08,617 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:08,618 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:08,625 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:09,292 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:09,293 - INFO - Intentando actualizar Google Sheets...
+2025-01-07 17:38:09,297 - INFO - file_cache is only supported with oauth2client<4.0.0
+2025-01-07 17:38:09,875 - INFO - Se añadió una nueva fila en Google Sheets.
+2025-01-07 17:38:09,973 - INFO - Driver cerrado.

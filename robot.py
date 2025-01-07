@@ -346,13 +346,15 @@ def ingresar_y_extraer_datos(driver):
         capturar_pantalla(driver, "error_ingresar_y_extraer_datos.png")
         return None
     
-def ingresar_y_extraer_todas_las_solicitudes(driver):
+def ingresar_y_extraer_todas_las_solicitudes(driver, max_solicitudes=10):
     """
-    Extrae los datos de todas las solicitudes disponibles en la tabla, manejando la paginación.
+    Extrae los datos de hasta 'max_solicitudes' solicitudes disponibles en la tabla,
+    manejando la paginación.
     """
     try:
         logger.info("Intentando extraer datos de todas las solicitudes disponibles con paginación...")
         solicitudes = []  # Lista para almacenar los datos de todas las solicitudes
+        contador_solicitudes = 0  # Contador para limitar el número de solicitudes
 
         while True:  # Bucle para iterar por cada página
             # Obtener todos los elementos que representan las solicitudes en la tabla
@@ -362,11 +364,19 @@ def ingresar_y_extraer_todas_las_solicitudes(driver):
             logger.info(f"Se encontraron {len(filas_solicitudes)} solicitudes en la tabla.")
 
             for index, solicitud_element in enumerate(filas_solicitudes):
+                # Revisamos si ya hemos llegado a 'max_solicitudes'
+                if contador_solicitudes >= max_solicitudes:
+                    logger.info(f"Se alcanzó el límite de {max_solicitudes} solicitudes. Deteniendo extracción.")
+                    return solicitudes
+
                 try:
-                    logger.info(f"Procesando solicitud {index + 1} en la página actual...")
+                    logger.info(f"Procesando solicitud {contador_solicitudes + 1} de {max_solicitudes}...")
 
                     # Guardar el handle de la pestaña original
                     original_window = driver.current_window_handle
+
+                    numero_solicitud = solicitud_element.text.strip()
+                    logger.info(f"Número de solicitud leído de la tabla: {numero_solicitud}")
 
                     # Hacer clic en el número de la solicitud para abrir una nueva pestaña
                     driver.execute_script("arguments[0].click();", solicitud_element)
@@ -375,8 +385,6 @@ def ingresar_y_extraer_todas_las_solicitudes(driver):
 
                     # Esperar a que se abra una nueva pestaña
                     WebDriverWait(driver, 10).until(EC.number_of_windows_to_be(2))
-
-                    # Cambiar el foco a la nueva pestaña
                     ventanas = driver.window_handles
                     nueva_pestana = [window for window in ventanas if window != original_window][0]
                     driver.switch_to.window(nueva_pestana)
@@ -384,6 +392,7 @@ def ingresar_y_extraer_todas_las_solicitudes(driver):
                     # Extraer datos de la solicitud actual
                     datos_clickeados = localizar_y_clickeador_datos_solicitud(driver)
                     if datos_clickeados:
+                        # Extraemos la información básica (cargo, sucursal, etc.)
                         cargo = extraer_texto_xpath(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Cargo solicitado:')]/following-sibling::span")
                         sucursal = extraer_texto_xpath(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Dirección confirmada:')]/following-sibling::span")
                         fecha_inicio = extraer_texto_xpath(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de inicio:')]/following-sibling::span")
@@ -391,7 +400,6 @@ def ingresar_y_extraer_todas_las_solicitudes(driver):
                         causal = extraer_texto_xpath(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Causal solicitud:')]/following-sibling::span")
 
                         # Generar enlace para la solicitud
-                        numero_solicitud = extraer_texto_xpath(driver, "//span[contains(@class, 'badge badge-info')]")
                         link = f"https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/{numero_solicitud}"
 
                         # Detectar las secciones en la nueva pestaña
@@ -408,30 +416,41 @@ def ingresar_y_extraer_todas_las_solicitudes(driver):
                             "link": link
                         }
 
-                        logger.info(f"Datos extraídos para la solicitud {index + 1}: {datos}")
+                        logger.info(f"Datos extraídos para la solicitud {contador_solicitudes + 1}: {datos}")
                         solicitudes.append((datos, secciones))
                     else:
-                        logger.error(f"No se pudo extraer datos para la solicitud {index + 1}.")
+                        logger.error(f"No se pudo extraer datos para la solicitud {contador_solicitudes + 1}.")
 
-                    # Cerrar la pestaña actual y volver a la pestaña original
+                    # Cerramos la pestaña actual y regresamos a la original
                     driver.close()
                     driver.switch_to.window(original_window)
 
+                    # Incrementamos el contador
+                    contador_solicitudes += 1
+
                 except Exception as e:
-                    logger.error(f"Error al procesar la solicitud {index + 1}: {e}")
-                    capturar_pantalla(driver, f"error_solicitud_{index + 1}.png")
+                    logger.error(f"Error al procesar la solicitud {contador_solicitudes + 1}: {e}")
+                    capturar_pantalla(driver, f"error_solicitud_{contador_solicitudes + 1}.png")
+                    # Si algo falla, igualmente cerramos la pestaña y volvemos a la principal
+                    ventanas = driver.window_handles
+                    for window in ventanas:
+                        if window != original_window:
+                            driver.switch_to.window(window)
+                            driver.close()
+                    driver.switch_to.window(original_window)
                     continue
 
-            # Intentar pasar a la siguiente página
+            # Si terminamos de procesar todas las solicitudes en la página,
+            # intentamos ir a la siguiente
             try:
                 next_button = driver.find_element(By.ID, "table-dt_review_next")
                 if "disabled" in next_button.get_attribute("class"):
                     logger.info("No hay más páginas disponibles.")
-                    break  # Salir del bucle si no hay más páginas
+                    break
                 else:
                     logger.info("Pasando a la siguiente página...")
                     next_button.click()
-                    time.sleep(3)  # Esperar a que la nueva página cargue
+                    time.sleep(3)
             except NoSuchElementException:
                 logger.info("Botón 'Siguiente' no encontrado. Terminando proceso de paginación.")
                 break
@@ -443,7 +462,6 @@ def ingresar_y_extraer_todas_las_solicitudes(driver):
         logger.error(f"Error durante la extracción de todas las solicitudes: {e}")
         capturar_pantalla(driver, "error_extraer_todas_solicitudes.png")
         return []
-
 
 def actualizar_google_sheets(datos, secciones):
     try:
@@ -496,23 +514,22 @@ def actualizar_google_sheets(datos, secciones):
 def main():
     driver = setup_driver()
     try:
-        # Paso 1: Iniciar sesión en el sistema de requerimientos
+        # Paso 1: Iniciar sesión
         login_sistema_requerimientos(driver)
 
-        # Paso 2: Navegar por el menú hasta la sección requerida
+        # Paso 2: Navegar
         navegar_menu_soporte_operativo(driver)
 
-        # Paso 3: Extraer datos de todas las solicitudes
-        todas_las_solicitudes = ingresar_y_extraer_todas_las_solicitudes(driver)
+        # Paso 3: Extraer - con límite de 10
+        todas_las_solicitudes = ingresar_y_extraer_todas_las_solicitudes(driver, max_solicitudes=10)
 
-        # Paso 4: Actualizar Google Sheets para cada solicitud
+        # Paso 4: Guardar en Google Sheets
         for datos, secciones in todas_las_solicitudes:
             actualizar_google_sheets(datos, secciones)
 
     except Exception as e:
         logger.error(f"Proceso terminado con errores: {e}")
     finally:
-        # Cerrar el driver
         driver.quit()
         logger.info("Driver cerrado.")
 
