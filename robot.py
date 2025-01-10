@@ -6,7 +6,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException, StaleElementReferenceException
+from selenium.common.exceptions import (
+    TimeoutException,
+    NoSuchElementException,
+    ElementClickInterceptedException,
+    StaleElementReferenceException
+)
 from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 import time
@@ -14,11 +19,11 @@ import os
 
 # Configurar logger principal
 logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)  # Cambiado a DEBUG para obtener más detalles
 
 # Configurar el manejador para el archivo
 file_handler = logging.FileHandler('robot.log', mode='w')
-file_handler.setLevel(logging.INFO)
+file_handler.setLevel(logging.DEBUG)  # Cambiado a DEBUG
 file_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -81,38 +86,53 @@ def login_sistema_requerimientos(driver):
         logger.error(f"Error durante el inicio de sesión: {e}")
         raise
 
-def extraer_texto_xpath(driver, xpath, default="N/A"):
+def extraer_texto_con_reintentos(driver, xpath, default="N/A", intentos=3, delay=2):
     """
-    Extrae el texto de un elemento localizado por XPath. Si no encuentra el elemento, retorna un valor predeterminado.
-    """
-    try:
-        elemento = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, xpath))
-        )
-        return elemento.text.strip() if elemento else default
-    except TimeoutException:
-        logger.warning(f"No se encontró el elemento para XPath: {xpath}")
-        return default
+    Intenta extraer el texto de un elemento por XPath con reintentos en caso de excepciones.
 
+    :param driver: Instancia de Selenium WebDriver.
+    :param xpath: Selector XPath del elemento.
+    :param default: Valor por defecto si el elemento no se encuentra.
+    :param intentos: Número de intentos de reintento.
+    :param delay: Tiempo de espera entre intentos en segundos.
+    :return: Texto extraído o el valor predeterminado.
+    """
+    for intento in range(intentos):
+        try:
+            elemento = WebDriverWait(driver, 15).until(  # Aumentar timeout a 15
+                EC.presence_of_element_located((By.XPATH, xpath))
+            )
+            texto = elemento.text.strip() if elemento else default
+            if texto == default:
+                # Log adicional para depuración
+                html_content = elemento.get_attribute('outerHTML') if elemento else 'Elemento no encontrado'
+                logger.debug(f"Elemento encontrado para XPath: {xpath}. HTML: {html_content}")
+            return texto
+        except (TimeoutException, StaleElementReferenceException) as e:
+            logger.warning(f"Intento {intento + 1} fallido para XPath: {xpath}. Error: {e}")
+            time.sleep(delay)
+    # Log adicional si todos los intentos fallan
+    logger.error(f"No se pudo extraer el texto para XPath: {xpath} después de {intentos} intentos.")
+    return default
 
 def navegar_menu_soporte_operativo(driver):
     try:
         logger.info("Intentando hacer clic en 'Soporte operativo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'dropdown-toggle') and contains(text(),'Soporte operativo')]")
-        )).click()
+            EC.element_to_be_clickable((By.XPATH, "//a[contains(@class,'dropdown-toggle') and contains(text(),'Soporte operativo')]"))
+        ).click()
         logger.info("Clic en 'Soporte operativo' realizado.")
 
         logger.info("Intentando hacer clic en 'Personal Externo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@href='#module_hrm']//span[contains(text(),'Personal Externo')]")
-        )).click()
+            EC.element_to_be_clickable((By.XPATH, "//a[@href='#module_hrm']//span[contains(text(),'Personal Externo')]"))
+        ).click()
         logger.info("Clic en 'Personal Externo' realizado.")
 
         logger.info("Intentando hacer clic en 'Estado de solicitudes Personal Externo'...")
         WebDriverWait(driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal' and contains(text(),'Estado de solicitudes Personal Externo')]")
-        )).click()
+            EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal' and contains(text(),'Estado de solicitudes Personal Externo')]"))
+        ).click()
         logger.info("Clic en 'Estado de solicitudes Personal Externo' realizado.")
 
         time.sleep(2)
@@ -149,40 +169,6 @@ def localizar_y_clickeador_datos_solicitud(driver, timeout=30):
         logger.error(f"No se pudo localizar o hacer clic en 'Datos de la solicitud': {e}")
         driver.save_screenshot("error_click_datos_solicitud.png")
         return False
-
-def revisar_errores_consola(driver):
-    """
-    Revisa y registra los errores en la consola del navegador.
-    """
-    try:
-        logs = driver.get_log('browser')
-        for log_entry in logs:
-            if log_entry['level'] == 'SEVERE':
-                logger.warning(f"Error de la consola: {log_entry}")
-    except Exception as e:
-        logger.error(f"No se pudo obtener los logs de la consola del navegador: {e}")
-
-def capturar_pantalla(driver, nombre_archivo):
-    """
-    Captura una captura de pantalla y la guarda con el nombre especificado.
-    """
-    try:
-        driver.save_screenshot(nombre_archivo)
-        logger.info(f"Captura de pantalla guardada: {nombre_archivo}")
-    except Exception as e:
-        logger.error(f"No se pudo guardar la captura de pantalla {nombre_archivo}: {e}")
-
-def esperar_a_modal_cerrado(driver, timeout=30):
-    """
-    Espera a que el modal de carga esté cerrado.
-    """
-    try:
-        WebDriverWait(driver, timeout).until(
-            EC.invisibility_of_element_located((By.ID, "model-loading"))
-        )
-        logger.info("Modal de carga cerrado.")
-    except TimeoutException:
-        logger.warning("El modal de carga sigue visible después del tiempo de espera.")
 
 def detectar_secciones(driver):
     """
@@ -231,231 +217,124 @@ def detectar_secciones(driver):
     logger.info(f"Secciones detectadas: {secciones}")
     return secciones
 
-def ingresar_y_extraer_datos(driver):
+def capturar_pantalla(driver, nombre_archivo):
+    """
+    Captura una captura de pantalla y la guarda con el nombre especificado.
+    """
     try:
-        logger.info("Intentando extraer datos de la solicitud...")
-
-        # Guardar el handle de la pestaña original
-        original_window = driver.current_window_handle
-        logger.info(f"Handle de la pestaña original: {original_window}")
-
-        # Extraer número de la solicitud desde la tabla
-        numero_solicitud_element = WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange"))
-        )
-        numero_solicitud = numero_solicitud_element.text.strip()
-        logger.info(f"Número de solicitud extraído: {numero_solicitud}")
-
-        # Hacer clic en el número de la solicitud que abre una nueva pestaña
-        numero_solicitud_element.click()
-        logger.info("Clic en el número de la primera solicitud realizado.")
-        time.sleep(3)  # Espera para que la nueva pestaña se abra
-
-        # Esperar a que se abra una nueva pestaña
-        WebDriverWait(driver, 10).until(EC.number_of_windows_to_be(2))
-        logger.info("Nueva pestaña abierta.")
-
-        # Obtener todos los handles de las ventanas
-        ventanas = driver.window_handles
-        logger.info(f"Handles de ventanas abiertas: {ventanas}")
-
-        # Identificar la nueva pestaña
-        nueva_pestana = [window for window in ventanas if window != original_window][0]
-        logger.info(f"Handle de la nueva pestaña: {nueva_pestana}")
-
-        # Cambiar el foco a la nueva pestaña
-        driver.switch_to.window(nueva_pestana)
-        logger.info("Cambio de foco a la nueva pestaña realizado.")
-
-        # Verificar el título o la URL para asegurar que estamos en la pestaña correcta
-        titulo = driver.title
-        logger.info(f"Título de la nueva pestaña: {titulo}")
-
-        url = driver.current_url
-        logger.info(f"URL de la nueva pestaña: {url}")
-
-        # Verificar que estamos en la URL esperada
-        expected_url_fragment = "/pe_workflow/externalizacion-personal/"
-        if expected_url_fragment not in url:
-            logger.error("La nueva pestaña no corresponde a la URL esperada.")
-            raise Exception("Cambio de pestaña fallido.")
-
-        # Esperar a que la página de la nueva pestaña cargue completamente
-        WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.XPATH, "//div[@data-metakey='datos_solicitud']"))
-        )
-        logger.info("Página de la nueva pestaña cargada exitosamente.")
-
-        # Llamar a la función para localizar y hacer clic en 'Datos de la solicitud'
-        datos_clickeados = localizar_y_clickeador_datos_solicitud(driver)
-
-        if datos_clickeados:
-            logger.info("Clic en 'Datos de la solicitud' realizado con éxito.")
-            # Extraer datos específicos después de expandir
-            # Asegúrate de ajustar los selectores según el HTML real
-            cargo_element = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.XPATH, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Cargo solicitado:')]/following-sibling::span"))
-            )
-            cargo = cargo_element.text.strip() if cargo_element else "N/A"
-
-            sucursal_element = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.XPATH, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Dirección confirmada:')]/following-sibling::span"))
-            )
-            sucursal = sucursal_element.text.strip() if sucursal_element else "N/A"
-
-            fecha_inicio_element = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.XPATH, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de inicio:')]/following-sibling::span"))
-            )
-            fecha_inicio = fecha_inicio_element.text.strip() if fecha_inicio_element else "N/A"
-
-            fecha_termino_element = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.XPATH, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de término:')]/following-sibling::span"))
-            )
-            fecha_termino = fecha_termino_element.text.strip() if fecha_termino_element else "N/A"
-
-            causal_element = WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.XPATH, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Causal solicitud:')]/following-sibling::span"))
-            )
-            causal = causal_element.text.strip() if causal_element else "N/A"
-
-            # Generar enlace para la solicitud
-            link = f"https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/{numero_solicitud}"
-
-            # Detectar las secciones en la nueva pestaña
-            secciones = detectar_secciones(driver)
-
-            # Almacenar todos los datos en un diccionario
-            datos = {
-                "numero_solicitud": numero_solicitud,
-                "cargo": cargo,
-                "sucursal": sucursal,
-                "fecha_inicio": fecha_inicio,
-                "fecha_termino": fecha_termino,
-                "causal": causal,
-                "link": link
-            }
-            logger.info(f"Datos extraídos: {datos}")
-            return datos, secciones  # Retorna el diccionario con los datos
-
-        else:
-            logger.error("No se pudo realizar el clic en 'Datos de la solicitud'.")
-            return None  # Retorna None en caso de fallo
-
+        driver.save_screenshot(nombre_archivo)
+        logger.info(f"Captura de pantalla guardada: {nombre_archivo}")
     except Exception as e:
-        logger.error(f"Error durante la extracción de datos: {e}")
-        capturar_pantalla(driver, "error_ingresar_y_extraer_datos.png")
-        return None
-    
-def ingresar_y_extraer_todas_las_solicitudes(driver, max_solicitudes=10):
+        logger.error(f"No se pudo guardar la captura de pantalla {nombre_archivo}: {e}")
+
+def ingresar_y_extraer_todas_las_solicitudes(driver):
     """
-    Extrae los datos de hasta 'max_solicitudes' solicitudes disponibles en la tabla,
-    manejando la paginación.
+    Extrae los datos de todas las solicitudes disponibles en la tabla, manejando la paginación.
     """
     try:
-        logger.info("Intentando extraer datos de todas las solicitudes disponibles con paginación...")
+        logger.info("Iniciando extracción de solicitudes con paginación...")
         solicitudes = []  # Lista para almacenar los datos de todas las solicitudes
-        contador_solicitudes = 0  # Contador para limitar el número de solicitudes
+        pagina_actual = 1  # Comenzamos con la página 1
 
-        while True:  # Bucle para iterar por cada página
-            # Obtener todos los elementos que representan las solicitudes en la tabla
-            filas_solicitudes = WebDriverWait(driver, 20).until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange"))
-            )
-            logger.info(f"Se encontraron {len(filas_solicitudes)} solicitudes en la tabla.")
+        while True:
+            logger.info(f"Procesando página {pagina_actual}...")
 
-            for index, solicitud_element in enumerate(filas_solicitudes):
-                # Revisamos si ya hemos llegado a 'max_solicitudes'
-                if contador_solicitudes >= max_solicitudes:
-                    logger.info(f"Se alcanzó el límite de {max_solicitudes} solicitudes. Deteniendo extracción.")
-                    return solicitudes
+            # Verificar que la tabla esté cargada y obtener las filas
+            try:
+                WebDriverWait(driver, 10).until(
+                    EC.presence_of_all_elements_located(
+                        (By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange")
+                    )
+                )
+                filas_solicitudes = driver.find_elements(
+                    By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange"
+                )
+                if not filas_solicitudes:
+                    logger.warning(f"No se encontraron solicitudes en la página {pagina_actual}. Terminando.")
+                    break
+            except TimeoutException:
+                logger.warning(f"No se encontraron solicitudes en la página {pagina_actual}. Terminando.")
+                break
 
+            logger.info(f"Se encontraron {len(filas_solicitudes)} solicitudes en la página {pagina_actual}.")
+
+            # Iterar sobre cada fila y extraer los datos
+            for solicitud_element in filas_solicitudes:
                 try:
-                    logger.info(f"Procesando solicitud {contador_solicitudes + 1} de {max_solicitudes}...")
-
-                    # Guardar el handle de la pestaña original
-                    original_window = driver.current_window_handle
-
                     numero_solicitud = solicitud_element.text.strip()
-                    logger.info(f"Número de solicitud leído de la tabla: {numero_solicitud}")
+                    if not numero_solicitud:
+                        logger.warning("Número de solicitud vacío. Continuando con la siguiente fila.")
+                        continue
 
-                    # Hacer clic en el número de la solicitud para abrir una nueva pestaña
+                    logger.info(f"Número de solicitud leído: {numero_solicitud}")
+
+                    # Hacer clic en el número de solicitud que abre una nueva pestaña
+                    driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", solicitud_element)
                     driver.execute_script("arguments[0].click();", solicitud_element)
                     logger.info("Clic en el número de la solicitud realizado.")
-                    time.sleep(3)
+                    time.sleep(2)
 
-                    # Esperar a que se abra una nueva pestaña
+                    # Esperar la nueva pestaña
                     WebDriverWait(driver, 10).until(EC.number_of_windows_to_be(2))
                     ventanas = driver.window_handles
-                    nueva_pestana = [window for window in ventanas if window != original_window][0]
+                    original_window = driver.current_window_handle
+                    nueva_pestana = [w for w in ventanas if w != original_window][0]
                     driver.switch_to.window(nueva_pestana)
+                    logger.info(f"Cambio de foco a la nueva pestaña: {nueva_pestana}")
 
-                    # Extraer datos de la solicitud actual
-                    datos_clickeados = localizar_y_clickeador_datos_solicitud(driver)
-                    if datos_clickeados:
-                        # Extraemos la información básica (cargo, sucursal, etc.)
-                        cargo = extraer_texto_xpath(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Cargo solicitado:')]/following-sibling::span")
-                        sucursal = extraer_texto_xpath(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Dirección confirmada:')]/following-sibling::span")
-                        fecha_inicio = extraer_texto_xpath(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de inicio:')]/following-sibling::span")
-                        fecha_termino = extraer_texto_xpath(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de término:')]/following-sibling::span")
-                        causal = extraer_texto_xpath(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Causal solicitud:')]/following-sibling::span")
-
-                        # Generar enlace para la solicitud
-                        link = f"https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/{numero_solicitud}"
-
-                        # Detectar las secciones en la nueva pestaña
-                        secciones = detectar_secciones(driver)
-
-                        # Almacenar todos los datos en un diccionario
-                        datos = {
-                            "numero_solicitud": numero_solicitud,
-                            "cargo": cargo,
-                            "sucursal": sucursal,
-                            "fecha_inicio": fecha_inicio,
-                            "fecha_termino": fecha_termino,
-                            "causal": causal,
-                            "link": link
-                        }
-
-                        logger.info(f"Datos extraídos para la solicitud {contador_solicitudes + 1}: {datos}")
+                    # Extraer los datos de la solicitud
+                    datos, secciones = ingresar_y_extraer_datos(driver, numero_solicitud)
+                    if datos and secciones:
                         solicitudes.append((datos, secciones))
+                        logger.info(f"Solicitud {numero_solicitud} añadida a la lista.")
                     else:
-                        logger.error(f"No se pudo extraer datos para la solicitud {contador_solicitudes + 1}.")
-
-                    # Cerramos la pestaña actual y regresamos a la original
-                    driver.close()
-                    driver.switch_to.window(original_window)
-
-                    # Incrementamos el contador
-                    contador_solicitudes += 1
+                        logger.warning(f"Datos incompletos para la solicitud: {numero_solicitud}")
 
                 except Exception as e:
-                    logger.error(f"Error al procesar la solicitud {contador_solicitudes + 1}: {e}")
-                    capturar_pantalla(driver, f"error_solicitud_{contador_solicitudes + 1}.png")
-                    # Si algo falla, igualmente cerramos la pestaña y volvemos a la principal
+                    logger.error(f"Error procesando solicitud {numero_solicitud}: {e}")
+                    capturar_pantalla(driver, f"error_procesando_solicitud_{numero_solicitud}.png")
+                    # Cerrar todas las ventanas excepto la original
                     ventanas = driver.window_handles
-                    for window in ventanas:
-                        if window != original_window:
-                            driver.switch_to.window(window)
+                    for ventana in ventanas:
+                        if ventana != original_window:
+                            driver.switch_to.window(ventana)
                             driver.close()
                     driver.switch_to.window(original_window)
                     continue
 
-            # Si terminamos de procesar todas las solicitudes en la página,
-            # intentamos ir a la siguiente
+            # Intentar pasar a la siguiente página
             try:
+                current_page = driver.find_element(
+                    By.CSS_SELECTOR, "li.paginate_button.page-item.active > a"
+                ).text.strip()
                 next_button = driver.find_element(By.ID, "table-dt_review_next")
+
+                # Verificar si el botón está deshabilitado
                 if "disabled" in next_button.get_attribute("class"):
-                    logger.info("No hay más páginas disponibles.")
+                    logger.info("Botón 'Siguiente' deshabilitado. No hay más páginas.")
                     break
-                else:
-                    logger.info("Pasando a la siguiente página...")
-                    next_button.click()
-                    time.sleep(3)
+
+                # Hacer clic en el botón "Siguiente"
+                driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
+                driver.execute_script("arguments[0].click();", next_button)
+                logger.info("Clic en 'Siguiente' realizado. Esperando cambio de página.")
+
+                # Esperar hasta que la tabla cambie
+                WebDriverWait(driver, 10).until(
+                    lambda d: d.find_element(
+                        By.CSS_SELECTOR, "li.paginate_button.page-item.active > a"
+                    ).text.strip() != current_page
+                )
+                pagina_actual += 1
+
+            except TimeoutException:
+                logger.warning("No se detectó cambio de página después de hacer clic en 'Siguiente'. Terminando.")
+                break
             except NoSuchElementException:
-                logger.info("Botón 'Siguiente' no encontrado. Terminando proceso de paginación.")
+                logger.warning("No se encontró el botón 'Siguiente'. Terminando.")
                 break
 
-        logger.info(f"Se completó la extracción de todas las solicitudes. Total: {len(solicitudes)} solicitudes.")
+        logger.info(f"Extracción completa. Total de solicitudes: {len(solicitudes)}.")
         return solicitudes
 
     except Exception as e:
@@ -463,7 +342,142 @@ def ingresar_y_extraer_todas_las_solicitudes(driver, max_solicitudes=10):
         capturar_pantalla(driver, "error_extraer_todas_solicitudes.png")
         return []
 
+def ingresar_y_extraer_datos(driver, numero_solicitud):
+    """
+    Extrae los datos de una solicitud específica.
+
+    :param driver: Instancia de Selenium WebDriver.
+    :param numero_solicitud: Número de la solicitud a extraer.
+    :return: Tuple (datos, secciones) o (None, None) en caso de fallo.
+    """
+    try:
+        logger.info(f"Intentando extraer datos para la solicitud: {numero_solicitud}")
+
+        # Verificar y hacer clic en 'Datos de la solicitud'
+        datos_clickeados = localizar_y_clickeador_datos_solicitud(driver)
+        if not datos_clickeados:
+            logger.warning(f"No se pudo hacer clic en 'Datos de la solicitud' para la solicitud: {numero_solicitud}")
+            return None, None
+
+        # Extraer los campos específicos usando la función mejorada
+        cargo = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Cargo solicitado:')]/following-sibling::span")
+        sucursal = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Dirección confirmada:')]/following-sibling::span")
+        fecha_inicio = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de inicio:')]/following-sibling::span")
+        fecha_termino = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de término:')]/following-sibling::span")
+        causal = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Causal solicitud:')]/following-sibling::span")
+
+        # Generar enlace para la solicitud
+        link = f"https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/{numero_solicitud}"
+
+        # Detectar las secciones en la nueva pestaña
+        secciones = detectar_secciones(driver)
+
+        # Almacenar todos los datos en un diccionario
+        datos = {
+            "numero_solicitud": numero_solicitud,
+            "cargo": cargo,
+            "sucursal": sucursal,
+            "fecha_inicio": fecha_inicio,
+            "fecha_termino": fecha_termino,
+            "causal": causal,
+            "link": link
+        }
+
+        logger.info(f"Datos extraídos: {datos}")
+        return datos, secciones  # Retorna el diccionario con los datos
+
+    except Exception as e:
+        logger.error(f"Error al extraer datos de la solicitud {numero_solicitud}: {e}")
+        capturar_pantalla(driver, f"error_extraccion_{numero_solicitud}.png")
+        return None, None
+    finally:
+        # Cerrar la pestaña de la solicitud y volver a la original
+        try:
+            driver.close()
+            driver.switch_to.window(driver.window_handles[0])
+            logger.info("Cerrada la pestaña de la solicitud y vuelto a la pestaña original.")
+        except Exception as e:
+            logger.error(f"Error al cerrar la pestaña de la solicitud: {e}")
+
+def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
+    """
+    Sube todas las solicitudes a Google Sheets en una sola solicitud con reintentos.
+
+    :param solicitudes: Lista de tuplas (datos, secciones).
+    :param rango: Rango en Google Sheets donde agregar los datos.
+    :param intentos: Número de intentos de reintento en caso de fallo.
+    :param delay: Tiempo de espera entre intentos en segundos.
+    """
+    try:
+        if not solicitudes:
+            logger.error("No hay datos para actualizar en Google Sheets.")
+            return
+
+        logger.info(f"Subiendo {len(solicitudes)} filas a Google Sheets en una sola solicitud...")
+        creds = Credentials.from_service_account_file("service_account.json", scopes=SCOPES)
+        service = build("sheets", "v4", credentials=creds)
+
+        # Crear lista de valores para todas las solicitudes
+        values = []
+        for datos, secciones in solicitudes:
+            row = [
+                datos.get("numero_solicitud", ""),  # Columna A
+                "",  # Columna B vacía
+                datos.get("cargo", ""),  # Columna C
+                datos.get("sucursal", ""),  # Columna D
+                datos.get("fecha_inicio", ""),  # Columna E
+                datos.get("fecha_termino", ""),  # Columna F
+                datos.get("causal", ""),  # Columna G
+                "",  # Columna H vacía
+                datos.get("link", ""),  # Columna I
+                "Sí" if secciones.get("boton_aceptar", False) else "No",  # Columna J
+                "Sí" if secciones.get("datos_solicitud", False) else "No",  # Columna K
+                "Sí" if secciones.get("aceptacion_evaluador_rrhh", False) else "No",  # Columna L
+                "Sí" if secciones.get("proveedor_seleccionado", False) else "No",  # Columna M
+                "Sí" if secciones.get("aceptacion_proveedor", False) else "No",  # Columna N
+                "Sí" if secciones.get("cierre_automatico", False) else "No",  # Columna O
+                "Sí" if secciones.get("rechazos_proveedores", False) else "No",  # Columna P
+                "Sí" if secciones.get("reasignacion_solicitudes", False) else "No"  # Columna Q
+            ]
+            values.append(row)
+
+        # Preparar el cuerpo de la solicitud
+        body = {"values": values}
+
+        for intento in range(intentos):
+            try:
+                # Usar una sola llamada para subir todas las filas
+                result = service.spreadsheets().values().append(
+                    spreadsheetId=SPREADSHEET_ID,
+                    range=rango,  # Rango donde agregar los datos
+                    valueInputOption="USER_ENTERED",
+                    insertDataOption="INSERT_ROWS",
+                    body=body
+                ).execute()
+
+                logger.info(f"Se subieron {result['updates']['updatedRows']} filas a Google Sheets correctamente.")
+                break  # Salir del loop si la subida fue exitosa
+
+            except Exception as e:
+                logger.error(f"Error subiendo datos a Google Sheets en el intento {intento + 1}: {e}")
+                if intento < intentos - 1:
+                    logger.info(f"Reintentando en {delay} segundos...")
+                    time.sleep(delay)
+                else:
+                    logger.error("Se agotaron los intentos de subida a Google Sheets.")
+                    raise
+
+    except Exception as e:
+        logger.error(f"Error subiendo datos a Google Sheets: {e}")
+        raise
+
 def actualizar_google_sheets(datos, secciones):
+    """
+    Sube una sola solicitud a Google Sheets.
+
+    :param datos: Diccionario con los datos extraídos.
+    :param secciones: Diccionario con el estado de las secciones.
+    """
     try:
         if not datos:
             logger.error("No hay datos para actualizar en Google Sheets.")
@@ -520,18 +534,20 @@ def main():
         # Paso 2: Navegar
         navegar_menu_soporte_operativo(driver)
 
-        # Paso 3: Extraer - con límite de 10
-        todas_las_solicitudes = ingresar_y_extraer_todas_las_solicitudes(driver, max_solicitudes=10)
+        # Paso 3: Extraer todas las solicitudes sin límite
+        todas_las_solicitudes = ingresar_y_extraer_todas_las_solicitudes(driver)
 
-        # Paso 4: Guardar en Google Sheets
-        for datos, secciones in todas_las_solicitudes:
-            actualizar_google_sheets(datos, secciones)
+        # Paso 4: Subir datos agrupados a Google Sheets
+        actualizar_google_sheets_batch(todas_las_solicitudes, "Principal!A:Q")
 
     except Exception as e:
         logger.error(f"Proceso terminado con errores: {e}")
     finally:
-        driver.quit()
-        logger.info("Driver cerrado.")
+        try:
+            driver.quit()
+            logger.info("Driver cerrado.")
+        except Exception as e:
+            logger.error(f"Error al cerrar el driver: {e}")
 
 if __name__ == "__main__":
     main()
