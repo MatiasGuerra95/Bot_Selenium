@@ -399,10 +399,10 @@ def ingresar_y_extraer_datos(driver, numero_solicitud):
 
 def limpiar_google_sheet(spreadsheet_id, rango, intentos=3, delay=5):
     """
-    Limpia el contenido de un rango específico en Google Sheets.
+    Limpia el contenido de un rango específico en Google Sheets, sin afectar los encabezados.
     
     :param spreadsheet_id: ID de la hoja de cálculo en Google Drive.
-    :param rango: Rango en Google Sheets donde limpiar los datos.
+    :param rango: Rango en Google Sheets donde limpiar los datos (A3:Q, por ejemplo).
     :param intentos: Número de intentos en caso de fallo.
     :param delay: Tiempo de espera entre intentos.
     """
@@ -412,7 +412,7 @@ def limpiar_google_sheet(spreadsheet_id, rango, intentos=3, delay=5):
 
         for intento in range(intentos):
             try:
-                # Borrar los valores del rango
+                # Borrar los valores del rango (A3:Q hacia abajo)
                 service.spreadsheets().values().clear(
                     spreadsheetId=spreadsheet_id,
                     range=rango
@@ -431,6 +431,7 @@ def limpiar_google_sheet(spreadsheet_id, rango, intentos=3, delay=5):
         logger.error(f"Error configurando la limpieza de Google Sheets: {e}")
         raise
 
+
 def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
     """
     Sube todas las solicitudes a Google Sheets en una sola solicitud con reintentos.
@@ -445,10 +446,11 @@ def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
             logger.error("No hay datos para actualizar en Google Sheets.")
             return
 
+        # Limpieza del rango específico
         logger.info(f"Limpiando el rango '{rango}' en Google Sheets antes de insertar nuevos datos...")
         limpiar_google_sheet(SPREADSHEET_ID, rango)
 
-        logger.info(f"Subiendo {len(solicitudes)} filas a Google Sheets en una sola solicitud...")
+        # Configuración de credenciales
         creds = Credentials.from_service_account_file("service_account.json", scopes=SCOPES)
         service = build("sheets", "v4", credentials=creds)
 
@@ -502,6 +504,7 @@ def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
     except Exception as e:
         logger.error(f"Error subiendo datos a Google Sheets: {e}")
         raise
+
 
 def actualizar_google_sheets(datos, secciones):
     """
@@ -570,7 +573,7 @@ def main():
         todas_las_solicitudes = ingresar_y_extraer_todas_las_solicitudes(driver)
 
         # Paso 4: Subir datos agrupados a Google Sheets
-        actualizar_google_sheets_batch(todas_las_solicitudes, "Principal!A:Q")
+        actualizar_google_sheets_batch(todas_las_solicitudes, "Principal!A3:Q")
 
     except Exception as e:
         logger.error(f"Proceso terminado con errores: {e}")
