@@ -46,7 +46,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive"
 ]
 SPREADSHEET_ID = "1bGo4MAwjZwVhQmzTjksRoHV6UuaPaYa-UVYB21vL_Ls"
-RANGE_NAME = "En proceso!A3:S3"
+RANGE_NAME = "En proceso!A3:X3"
 
 def setup_driver():
     options = Options()
@@ -607,7 +607,7 @@ def actualizar_google_sheets(datos, secciones):
         # Usar la API para añadir la fila al final
         result = service.spreadsheets().values().append(
             spreadsheetId=SPREADSHEET_ID,
-            range="En Proceso!A:S",  # Rango donde agregar los datos
+            range="En Proceso!A:X",  # Rango donde agregar los datos
             valueInputOption="USER_ENTERED",
             insertDataOption="INSERT_ROWS",  # Insertar nuevas filas
             body=body
@@ -631,7 +631,7 @@ def main():
         todas_las_solicitudes = ingresar_y_extraer_todas_las_solicitudes(driver)
 
         # Paso 4: Subir datos agrupados a Google Sheets
-        actualizar_google_sheets_batch(todas_las_solicitudes, "En Proceso!A3:S")
+        actualizar_google_sheets_batch(todas_las_solicitudes, "En Proceso!A3:X")
 
     except Exception as e:
         logger.error(f"Proceso terminado con errores: {e}")
