@@ -46,13 +46,13 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive"
 ]
 SPREADSHEET_ID = "1bGo4MAwjZwVhQmzTjksRoHV6UuaPaYa-UVYB21vL_Ls"
-RANGE_NAME = "Principal!A3:Q3"
+RANGE_NAME = "En proceso!A3:Q3"
 
 def setup_driver():
     options = Options()
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--headless")  # Para ejecución en entornos sin GUI
+    #options.add_argument("--headless")  # Para ejecución en entornos sin GUI
     options.add_argument("--window-size=1920,1080")
     service = Service("/usr/local/bin/chromedriver")
     driver = webdriver.Chrome(service=service, options=options)
@@ -134,6 +134,13 @@ def navegar_menu_soporte_operativo(driver):
             EC.element_to_be_clickable((By.XPATH, "//a[@href='/workflow/externalizacion-personal' and contains(text(),'Estado de solicitudes Personal Externo')]"))
         ).click()
         logger.info("Clic en 'Estado de solicitudes Personal Externo' realizado.")
+
+        # Añadir clic para acceder a "En Proceso"
+        logger.info("Intentando hacer clic en 'En Proceso'...")
+        WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.ID, "tabs-icons-text-2-tab"))
+        ).click()
+        logger.info("Clic en 'En Proceso' realizado.")
 
         time.sleep(2)
 
@@ -227,118 +234,110 @@ def capturar_pantalla(driver, nombre_archivo):
 
 def ingresar_y_extraer_todas_las_solicitudes(driver):
     """
-    Extrae los datos de todas las solicitudes disponibles en la tabla, manejando la paginación.
+    Extrae los datos de todas las solicitudes en "En Proceso", manejando la paginación.
     """
     try:
-        logger.info("Iniciando extracción de solicitudes con paginación...")
-        solicitudes = []  # Lista para almacenar los datos de todas las solicitudes
-        pagina_actual = 1  # Comenzamos con la página 1
+        logger.info("Iniciando extracción de solicitudes en proceso con paginación...")
+        solicitudes = []
+        pagina_actual = 1
+
+        # Asegúrate de que este ID coincida con el del botón "Siguiente" real en tu HTML
+        next_button_id = "table-dt_process_next"
 
         while True:
-            logger.info(f"Procesando página {pagina_actual}...")
+            logger.info(f"Procesando página {pagina_actual} de solicitudes en proceso...")
 
-            # Verificar que la tabla esté cargada y obtener las filas
-            try:
-                WebDriverWait(driver, 10).until(
-                    EC.presence_of_all_elements_located(
-                        (By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange")
-                    )
-                )
-                filas_solicitudes = driver.find_elements(
-                    By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange"
-                )
-                if not filas_solicitudes:
-                    logger.warning(f"No se encontraron solicitudes en la página {pagina_actual}. Terminando.")
-                    break
-            except TimeoutException:
-                logger.warning(f"No se encontraron solicitudes en la página {pagina_actual}. Terminando.")
+            # 1. Esperar (o simplemente buscar) las filas de la tabla en la página actual
+            filas_solicitudes = driver.find_elements(
+                By.CSS_SELECTOR, "td.sorting_1 a.btn.btn-sm.text-orange"
+            )
+
+            if not filas_solicitudes:
+                logger.warning(f"No se encontraron solicitudes en la página {pagina_actual}. Terminando paginación.")
                 break
 
             logger.info(f"Se encontraron {len(filas_solicitudes)} solicitudes en la página {pagina_actual}.")
 
-            # Iterar sobre cada fila y extraer los datos
+            # 2. Iterar sobre cada fila (cada solicitud)
             for solicitud_element in filas_solicitudes:
+                numero_solicitud = solicitud_element.text.strip()
+                if not numero_solicitud:
+                    logger.warning("Número de solicitud vacío. Continuando con la siguiente fila.")
+                    continue
+
+                logger.info(f"Número de solicitud: {numero_solicitud}")
+
+                # Abrir la solicitud en una nueva pestaña
+                original_window = driver.current_window_handle
                 try:
-                    numero_solicitud = solicitud_element.text.strip()
-                    if not numero_solicitud:
-                        logger.warning("Número de solicitud vacío. Continuando con la siguiente fila.")
-                        continue
-
-                    logger.info(f"Número de solicitud leído: {numero_solicitud}")
-
-                    # Hacer clic en el número de solicitud que abre una nueva pestaña
                     driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", solicitud_element)
                     driver.execute_script("arguments[0].click();", solicitud_element)
-                    logger.info("Clic en el número de la solicitud realizado.")
                     time.sleep(2)
 
                     # Esperar la nueva pestaña
                     WebDriverWait(driver, 10).until(EC.number_of_windows_to_be(2))
                     ventanas = driver.window_handles
-                    original_window = driver.current_window_handle
                     nueva_pestana = [w for w in ventanas if w != original_window][0]
                     driver.switch_to.window(nueva_pestana)
-                    logger.info(f"Cambio de foco a la nueva pestaña: {nueva_pestana}")
+                    logger.info(f"Cambio a la pestaña {nueva_pestana}")
 
-                    # Extraer los datos de la solicitud
+                    # Extraer la información
                     datos, secciones = ingresar_y_extraer_datos(driver, numero_solicitud)
                     if datos and secciones:
                         solicitudes.append((datos, secciones))
                         logger.info(f"Solicitud {numero_solicitud} añadida a la lista.")
                     else:
-                        logger.warning(f"Datos incompletos para la solicitud: {numero_solicitud}")
+                        logger.warning(f"Datos incompletos para la solicitud {numero_solicitud}.")
 
                 except Exception as e:
                     logger.error(f"Error procesando solicitud {numero_solicitud}: {e}")
-                    capturar_pantalla(driver, f"error_procesando_solicitud_{numero_solicitud}.png")
-                    # Cerrar todas las ventanas excepto la original
-                    ventanas = driver.window_handles
-                    for ventana in ventanas:
-                        if ventana != original_window:
-                            driver.switch_to.window(ventana)
+                    capturar_pantalla(driver, f"error_solicitud_{numero_solicitud}.png")
+                    # Cerrar la(s) pestaña(s) extra y volver a la original
+                    for wh in driver.window_handles:
+                        if wh != original_window:
+                            driver.switch_to.window(wh)
                             driver.close()
                     driver.switch_to.window(original_window)
-                    continue
 
-            # Intentar pasar a la siguiente página
+            # 3. Intentar ir a la siguiente página
+            # Buscar el botón "Siguiente" por ID o un selector alternativo
             try:
-                current_page = driver.find_element(
-                    By.CSS_SELECTOR, "li.paginate_button.page-item.active > a"
-                ).text.strip()
-                next_button = driver.find_element(By.ID, "table-dt_review_next")
-
-                # Verificar si el botón está deshabilitado
-                if "disabled" in next_button.get_attribute("class"):
-                    logger.info("Botón 'Siguiente' deshabilitado. No hay más páginas.")
-                    break
-
-                # Hacer clic en el botón "Siguiente"
-                driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
-                driver.execute_script("arguments[0].click();", next_button)
-                logger.info("Clic en 'Siguiente' realizado. Esperando cambio de página.")
-
-                # Esperar hasta que la tabla cambie
-                WebDriverWait(driver, 10).until(
-                    lambda d: d.find_element(
-                        By.CSS_SELECTOR, "li.paginate_button.page-item.active > a"
-                    ).text.strip() != current_page
-                )
-                pagina_actual += 1
-
-            except TimeoutException:
-                logger.warning("No se detectó cambio de página después de hacer clic en 'Siguiente'. Terminando.")
-                break
+                next_button = driver.find_element(By.ID, next_button_id)
             except NoSuchElementException:
-                logger.warning("No se encontró el botón 'Siguiente'. Terminando.")
+                logger.debug("No se encontró el botón por ID. Probando selector alternativo (.next:not(.disabled))...")
+                next_buttons = driver.find_elements(
+                    By.CSS_SELECTOR, "li.paginate_button.next:not(.disabled)"
+                )
+                if not next_buttons:
+                    logger.info("No hay botón 'Siguiente' habilitado. Fin de paginación.")
+                    break
+                next_button = next_buttons[0]
+
+            # Verificar si está deshabilitado por clase
+            if "disabled" in next_button.get_attribute("class"):
+                logger.info("Botón 'Siguiente' deshabilitado. No hay más páginas.")
                 break
+
+            # 4. Hacer clic en el botón "Siguiente"
+            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", next_button)
+            driver.execute_script("arguments[0].click();", next_button)
+            logger.info("Clic en 'Siguiente' realizado.")
+
+            # 5. Esperar un poco para que la tabla se recargue
+            time.sleep(2)
+
+            # 6. Subir el número de página y repetir el bucle
+            pagina_actual += 1
 
         logger.info(f"Extracción completa. Total de solicitudes: {len(solicitudes)}.")
         return solicitudes
 
     except Exception as e:
-        logger.error(f"Error durante la extracción de todas las solicitudes: {e}")
+        logger.error(f"Error en la extracción de todas las solicitudes: {e}")
         capturar_pantalla(driver, "error_extraer_todas_solicitudes.png")
         return []
+
+
 
 def ingresar_y_extraer_datos(driver, numero_solicitud):
     """
@@ -503,6 +502,7 @@ def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
         logger.error(f"Error subiendo datos a Google Sheets: {e}")
         raise
 
+
 def actualizar_google_sheets(datos, secciones):
     """
     Sube una sola solicitud a Google Sheets.
@@ -546,7 +546,7 @@ def actualizar_google_sheets(datos, secciones):
         # Usar la API para añadir la fila al final
         result = service.spreadsheets().values().append(
             spreadsheetId=SPREADSHEET_ID,
-            range="Principal!A:Q",  # Rango donde agregar los datos
+            range="En Proceso!A:Q",  # Rango donde agregar los datos
             valueInputOption="USER_ENTERED",
             insertDataOption="INSERT_ROWS",  # Insertar nuevas filas
             body=body
@@ -570,7 +570,7 @@ def main():
         todas_las_solicitudes = ingresar_y_extraer_todas_las_solicitudes(driver)
 
         # Paso 4: Subir datos agrupados a Google Sheets
-        actualizar_google_sheets_batch(todas_las_solicitudes, "Principal!A:Q")
+        actualizar_google_sheets_batch(todas_las_solicitudes, "En Proceso!A:Q")
 
     except Exception as e:
         logger.error(f"Proceso terminado con errores: {e}")

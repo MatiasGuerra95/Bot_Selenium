@@ -1,12 +1,10 @@
-name: Ejecutar Bot Selenium
+name: Ejecutar Bots Selenium
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types: [execute_workflow]
 
 jobs:
-  run_bot:
+  run_bots:
     runs-on: ubuntu-latest
 
     steps:
@@ -38,7 +36,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
-          wget 	https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip -O chromedriver-linux64.zip
+          wget https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/linux64/chromedriver-linux64.zip -O chromedriver-linux64.zip
           unzip chromedriver-linux64.zip -d /usr/local/bin/
           sudo mv /usr/local/bin/chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
           sudo chmod +x /usr/local/bin/chromedriver
@@ -51,8 +49,8 @@ jobs:
         run: |
           echo '${{ secrets.GOOGLE_CREDENTIALS }}' > service_account.json
 
-      # 7. Ejecutar el script de Selenium
-      - name: Ejecutar script Selenium
+      # 7. Ejecutar robot.py
+      - name: Ejecutar robot.py
         env:
           PORTAL_USER: ${{ secrets.PORTAL_USER }}
           PORTAL_PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
@@ -60,7 +58,16 @@ jobs:
           source venv/bin/activate
           python robot.py
 
-      # 8. Guardar logs como artefacto
+      # 8. Ejecutar bot.py
+      - name: Ejecutar bot.py
+        env:
+          PORTAL_USER: ${{ secrets.PORTAL_USER }}
+          PORTAL_PASSWORD: ${{ secrets.PORTAL_PASSWORD }}
+        run: |
+          source venv/bin/activate
+          python bot.py
+
+      # 9. Guardar logs como artefacto
       - name: Guardar archivo de log
         if: always()
         uses: actions/upload-artifact@v4
@@ -68,6 +75,6 @@ jobs:
           name: logs
           path: robot.log
 
-      # 9. Mensaje de éxito
+      # 10. Mensaje de éxito
       - name: Output Success Message
-        run: echo "Script ejecutado correctamente en GitHub Actions."
+        run: echo "Ambos scripts (robot.py y bot.py) ejecutados correctamente en GitHub Actions."
