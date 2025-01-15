@@ -46,7 +46,7 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive"
 ]
 SPREADSHEET_ID = "1bGo4MAwjZwVhQmzTjksRoHV6UuaPaYa-UVYB21vL_Ls"
-RANGE_NAME = "En proceso!A3:Q3"
+RANGE_NAME = "En proceso!A3:S3"
 
 def setup_driver():
     options = Options()
@@ -337,7 +337,32 @@ def ingresar_y_extraer_todas_las_solicitudes(driver):
         capturar_pantalla(driver, "error_extraer_todas_solicitudes.png")
         return []
 
+def extraer_tabla_aceptacion_proveedor(driver):
+    try:
+        logger.info("Verificando la tabla dentro de 'Aceptación del proveedor'.")
 
+        # XPath para localizar la tabla directamente
+        xpath_tabla = "//div[contains(@class, 'list-group-item text-sm')]//table[@class='table table-bordered']"
+        
+        # Esperar a que la tabla esté presente
+        tabla = WebDriverWait(driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, xpath_tabla))
+        )
+        logger.info("Tabla localizada. Extrayendo datos...")
+
+        # Extraer las filas de la tabla
+        filas = tabla.find_elements(By.XPATH, ".//tbody/tr")
+        datos_tabla = [[columna.text.strip() for columna in fila.find_elements(By.TAG_NAME, "td")] for fila in filas]
+        
+        logger.info(f"Datos extraídos de la tabla: {datos_tabla}")
+        return datos_tabla
+
+    except TimeoutException:
+        logger.error("Timeout al esperar la tabla de 'Aceptación del proveedor'. Verifica el XPath y el tiempo de carga.")
+        return None
+    except Exception as e:
+        logger.error(f"Error al extraer la tabla de 'Aceptación del proveedor': {e}")
+        return None
 
 def ingresar_y_extraer_datos(driver, numero_solicitud):
     """
@@ -356,18 +381,31 @@ def ingresar_y_extraer_datos(driver, numero_solicitud):
             logger.warning(f"No se pudo hacer clic en 'Datos de la solicitud' para la solicitud: {numero_solicitud}")
             return None, None
 
-        # Extraer los campos específicos usando la función mejorada
+        # Extraer los campos específicos
         cargo = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Cargo solicitado:')]/following-sibling::span")
         sucursal = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Dirección confirmada:')]/following-sibling::span")
         fecha_inicio = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de inicio:')]/following-sibling::span")
         fecha_termino = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de término:')]/following-sibling::span")
         causal = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Causal solicitud:')]/following-sibling::span")
+        observaciones = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Observaciones:')]/following-sibling::span")
 
         # Generar enlace para la solicitud
         link = f"https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/{numero_solicitud}"
 
         # Detectar las secciones en la nueva pestaña
         secciones = detectar_secciones(driver)
+
+        # Extraer la tabla de 'Aceptación del proveedor'
+        tabla_aceptacion = None
+        if secciones.get("aceptacion_proveedor", False):
+            logger.info("Intentando extraer la tabla de 'Aceptación del proveedor'.")
+            tabla_aceptacion = extraer_tabla_aceptacion_proveedor(driver)
+            if not tabla_aceptacion:
+                logger.warning(f"No se encontraron datos en la tabla de 'Aceptación del proveedor' para la solicitud: {numero_solicitud}")
+
+        # Validar los datos extraídos
+        if not cargo or not sucursal or not fecha_inicio or not fecha_termino:
+            logger.warning(f"Datos incompletos extraídos para la solicitud {numero_solicitud}. Validación requerida.")
 
         # Almacenar todos los datos en un diccionario
         datos = {
@@ -377,7 +415,9 @@ def ingresar_y_extraer_datos(driver, numero_solicitud):
             "fecha_inicio": fecha_inicio,
             "fecha_termino": fecha_termino,
             "causal": causal,
-            "link": link
+            "observaciones": observaciones,
+            "link": link,
+            "tabla_aceptacion_proveedor": tabla_aceptacion,  # Agregar los datos de la tabla aquí
         }
 
         logger.info(f"Datos extraídos: {datos}")
@@ -390,11 +430,17 @@ def ingresar_y_extraer_datos(driver, numero_solicitud):
     finally:
         # Cerrar la pestaña de la solicitud y volver a la original
         try:
+            original_window = driver.window_handles[0]
             driver.close()
-            driver.switch_to.window(driver.window_handles[0])
-            logger.info("Cerrada la pestaña de la solicitud y vuelto a la pestaña original.")
+            if original_window in driver.window_handles:
+                driver.switch_to.window(original_window)
+                logger.info("Cerrada la pestaña de la solicitud y vuelto a la pestaña original.")
+            else:
+                logger.error("No se pudo volver a la pestaña original.")
         except Exception as e:
             logger.error(f"Error al cerrar la pestaña de la solicitud: {e}")
+
+
 
 def limpiar_google_sheet(spreadsheet_id, rango, intentos=3, delay=5):
     """
@@ -456,7 +502,8 @@ def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
         # Crear lista de valores para todas las solicitudes
         values = []
         for datos, secciones in solicitudes:
-            row = [
+            # Datos básicos de la solicitud
+            base_row = [
                 datos.get("numero_solicitud", ""),
                 "",
                 datos.get("cargo", ""),
@@ -464,6 +511,7 @@ def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
                 datos.get("fecha_inicio", ""),
                 datos.get("fecha_termino", ""),
                 datos.get("causal", ""),
+                datos.get("observaciones", ""),
                 "",
                 datos.get("link", ""),
                 "Sí" if secciones.get("boton_aceptar", False) else "No",
@@ -475,7 +523,16 @@ def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
                 "Sí" if secciones.get("rechazos_proveedores", False) else "No",
                 "Sí" if secciones.get("reasignacion_solicitudes", False) else "No"
             ]
-            values.append(row)
+
+            # Extraer y agregar las filas de la tabla
+            tabla = datos.get("tabla_aceptacion_proveedor", [])
+            if tabla:
+                for fila in tabla:
+                    # Combina la fila base con cada fila de la tabla
+                    values.append(base_row + fila)
+            else:
+                # Si no hay tabla, simplemente agrega la fila base
+                values.append(base_row)
 
         # Preparar el cuerpo de la solicitud
         body = {"values": values}
@@ -503,6 +560,7 @@ def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
     except Exception as e:
         logger.error(f"Error subiendo datos a Google Sheets: {e}")
         raise
+
 
 
 
@@ -549,7 +607,7 @@ def actualizar_google_sheets(datos, secciones):
         # Usar la API para añadir la fila al final
         result = service.spreadsheets().values().append(
             spreadsheetId=SPREADSHEET_ID,
-            range="En Proceso!A:Q",  # Rango donde agregar los datos
+            range="En Proceso!A:S",  # Rango donde agregar los datos
             valueInputOption="USER_ENTERED",
             insertDataOption="INSERT_ROWS",  # Insertar nuevas filas
             body=body
@@ -573,7 +631,7 @@ def main():
         todas_las_solicitudes = ingresar_y_extraer_todas_las_solicitudes(driver)
 
         # Paso 4: Subir datos agrupados a Google Sheets
-        actualizar_google_sheets_batch(todas_las_solicitudes, "En Proceso!A3:Q")
+        actualizar_google_sheets_batch(todas_las_solicitudes, "En Proceso!A3:S")
 
     except Exception as e:
         logger.error(f"Proceso terminado con errores: {e}")

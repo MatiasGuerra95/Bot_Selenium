@@ -363,6 +363,7 @@ def ingresar_y_extraer_datos(driver, numero_solicitud):
         fecha_inicio = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de inicio:')]/following-sibling::span")
         fecha_termino = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Fecha de término:')]/following-sibling::span")
         causal = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Causal solicitud:')]/following-sibling::span")
+        observaciones = extraer_texto_con_reintentos(driver, "//div[contains(@id, 'datos_solicitud') and contains(@class, 'show')]//strong[contains(text(), 'Observaciones:')]/following-sibling::span")
 
         # Generar enlace para la solicitud
         link = f"https://sistemaderequerimientos.cl/pe_workflow/externalizacion-personal/{numero_solicitud}"
@@ -378,6 +379,7 @@ def ingresar_y_extraer_datos(driver, numero_solicitud):
             "fecha_inicio": fecha_inicio,
             "fecha_termino": fecha_termino,
             "causal": causal,
+            "observaciones": observaciones,
             "link": link
         }
 
@@ -465,6 +467,7 @@ def actualizar_google_sheets_batch(solicitudes, rango, intentos=3, delay=5):
                 datos.get("fecha_inicio", ""),
                 datos.get("fecha_termino", ""),
                 datos.get("causal", ""),
+                datos.get("observaciones", ""),
                 "",
                 datos.get("link", ""),
                 "Sí" if secciones.get("boton_aceptar", False) else "No",
